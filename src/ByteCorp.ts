@@ -4,6 +4,8 @@ import CanvasRenderer from './CanvasRenderer.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
+import Player from './Player.js';
+import KeyListener from './KeyListener.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -12,6 +14,10 @@ export default class ByteCorp extends Game {
 
   private currentScene: Scene;
 
+  private player: Player;
+
+  private keyListener: KeyListener;
+
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
@@ -19,6 +25,9 @@ export default class ByteCorp extends Game {
     this.canvas.width = window.innerWidth;
 
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
+
+    this.player = new Player(this.canvas.width, this.canvas.height);
+
   }
 
   /**
@@ -35,6 +44,19 @@ export default class ByteCorp extends Game {
    */
   public processInput(): void {
     this.currentScene.processInput(this.mouseListener);
+
+    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
+      this.player.moveUp();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+      this.player.moveDown();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+      this.player.moveLeft();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+      this.player.moveRight();
+    }
   }
 
   /**
@@ -44,6 +66,7 @@ export default class ByteCorp extends Game {
    * @returns true if the game should continue
    */
   public update(elapsed: number): boolean {
+    this.player.update(1);
     return true;
   }
 
@@ -64,5 +87,8 @@ export default class ByteCorp extends Game {
     if (this.currentScene != null) {
       this.currentScene.render(this.canvas);
     }
+
+    this.player.render(this.canvas);
+
   }
 }
