@@ -23,11 +23,9 @@ export default class ByteCorp extends Game {
     this.canvas = canvas;
     this.canvas.height = window.innerHeight;
     this.canvas.width = window.innerWidth;
-
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
-
     this.player = new Player(this.canvas.width, this.canvas.height);
-
+    this.keyListener = new KeyListener();
   }
 
   /**
