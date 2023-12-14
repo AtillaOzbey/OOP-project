@@ -23,23 +23,27 @@ export default class Player {
   public constructor(maxX: number, maxY: number) {
     this.posX = (maxX / 2) - 51;
     this.posY = maxY - 100;
-    this.image = CanvasRenderer.loadNewImage('./assets/logo_start.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
   public moveLeft(): void {
-    this.posX -= 2;
+    this.posX -= 5;
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
   }
 
   public moveRight(): void {
-    this.posX += 2;
+    this.posX += 5;
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Right.png');
   }
 
   public moveUp(): void {
-    this.posY -= 2;
+    this.posY -= 5;
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Back.png');
   }
 
   public moveDown(): void {
-    this.posY += 2;
+    this.posY += 5;
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
   // public isColliding(fruit: Fruit): boolean {
@@ -55,13 +59,11 @@ export default class Player {
   }
 
   public getWidth(): number {
-    //return this.image.width;
-    return 40;
+    return this.image.width;
   }
 
   public getHeight(): number {
-    //return this.image.height;
-    return 40;
+    return this.image.height;
   }
 
   public update(elapsed: number): void {
