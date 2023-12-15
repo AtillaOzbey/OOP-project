@@ -2,6 +2,7 @@ import CanvasRenderer from './CanvasRenderer.js';
 // import Level from './Level.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
+import Level from './level.js';
 
 export default class SceneStart extends Scene {
   private starting: boolean;
@@ -20,10 +21,10 @@ export default class SceneStart extends Scene {
    * @param mouseListener mouse listener object
    */
   public processInput(mouseListener: MouseListener): void {
-    // TODO dit fixen
-    // if (mouseListener.buttonPressed(0)) {
-    //   this.starting = true;
-    // }
+    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+      this.starting = true;
+      console.log('test');
+    }
   }
 
   /**
@@ -40,11 +41,9 @@ export default class SceneStart extends Scene {
    */
   public override getNextScene(): Scene | null {
     if (this.starting) {
-      // TODO
-      return null;
-      // return new Level(this.maxX, this.maxY);
+      return new Level(this.maxX, this.maxY);
     }
-    return null;
+    return this;
   }
 
   /**
@@ -58,6 +57,7 @@ export default class SceneStart extends Scene {
       this.logo,
       (canvas.width / 2) - (this.logo.width / 2),
       (canvas.height / 2) - (this.logo.height / 2),
+
     );
   }
 }
