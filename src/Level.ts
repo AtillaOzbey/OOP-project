@@ -7,7 +7,7 @@ export default class Level extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.logo = CanvasRenderer.loadNewImage('/assets/Office_Design.png');
+    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoorklein.png');
   }
 
   public override processInput(mouseListener: MouseListener): void {
@@ -28,6 +28,5 @@ export default class Level extends Scene {
       (canvas.width / 2) - (this.logo.width / 2),
       (canvas.height / 2) - (this.logo.height / 2),
     );
-      console.log(this.logo.width);
-}
+  }
 }
