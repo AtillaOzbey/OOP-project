@@ -1,6 +1,7 @@
-import { Game } from './GameLoop.js';
+
 
 import CanvasRenderer from './CanvasRenderer.js';
+import { Game } from './GameLoop.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
@@ -17,7 +18,7 @@ export default class ByteCorp extends Game {
     this.canvas = canvas;
     this.canvas.height = window.innerHeight;
     this.canvas.width = window.innerWidth;
-
+    this.mouseListener = new MouseListener(this.canvas);
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
   }
 
@@ -44,6 +45,10 @@ export default class ByteCorp extends Game {
    * @returns true if the game should continue
    */
   public update(elapsed: number): boolean {
+    this.currentScene.update(elapsed);
+    this.currentScene = this.currentScene.getNextScene();
+
+
     return true;
   }
 
