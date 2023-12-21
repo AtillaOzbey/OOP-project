@@ -10,6 +10,8 @@ import KeyListener from './KeyListener.js';
 import Wall from './Wall.js';
 import Npcs from './Npcs.js';
 import CanvasItem from './CanvasItem.js';
+import Level from './Level.js';
+import Doolhof from './Doolhof.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -22,8 +24,6 @@ export default class ByteCorp extends Game {
 
   private keyListener: KeyListener;
 
-  private walls: Wall[];
-
   private npcs: Npcs;
 
   public constructor(canvas: HTMLCanvasElement) {
@@ -32,10 +32,9 @@ export default class ByteCorp extends Game {
     this.canvas.height = 700;
     this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
-    this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
+    this.currentScene = new Doolhof(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
-    this.walls = [];
     this.npcs = new Npcs();
   }
 
@@ -77,7 +76,7 @@ export default class ByteCorp extends Game {
   public update(elapsed: number): boolean {
     this.player.update(1);
 
-    this.walls.push(new Wall(10, 200));
+    // this.walls.push(new Wall(10, 200));
     this.currentScene.update(elapsed);
     this.currentScene = this.currentScene.getNextScene();
 
@@ -102,12 +101,11 @@ export default class ByteCorp extends Game {
       this.currentScene.render(this.canvas);
     }
 
-    this.player.render(this.canvas);
-
-    for (let i: number = 0; i < this.walls.length; i++) {
-      this.walls[i].render(this.canvas);
+    if (this.currentScene instanceof Level) {
+      this.player.render(this.canvas);
+      this.npcs.render(this.canvas);
     }
 
-    this.npcs.render(this.canvas);
+
   }
 }
