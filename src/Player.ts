@@ -19,7 +19,6 @@ export default class Player {
 
   private movingDown: boolean;
 
-
   public constructor(maxX: number, maxY: number) {
     this.posX = (maxX / 2) - 51;
     this.posY = maxY - 100;

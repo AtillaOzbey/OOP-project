@@ -6,6 +6,9 @@ import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
 import Player from './Player.js';
 import KeyListener from './KeyListener.js';
+import Wall from './Wall.js';
+import Npcs from './Npcs.js';
+import CanvasItem from './CanvasItem.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -18,6 +21,10 @@ export default class ByteCorp extends Game {
 
   private keyListener: KeyListener;
 
+  private walls: Wall[];
+
+  private npcs: Npcs;
+
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
@@ -26,6 +33,8 @@ export default class ByteCorp extends Game {
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
+    this.walls = [];
+    this.npcs = new Npcs();
   }
 
   /**
@@ -65,6 +74,9 @@ export default class ByteCorp extends Game {
    */
   public update(elapsed: number): boolean {
     this.player.update(1);
+
+    this.walls.push(new Wall(10, 200));
+
     return true;
   }
 
@@ -88,5 +100,10 @@ export default class ByteCorp extends Game {
 
     this.player.render(this.canvas);
 
+    for (let i: number = 0; i < this.walls.length; i++) {
+      this.walls[i].render(this.canvas);
+    }
+
+    this.npcs.render(this.canvas);
   }
 }
