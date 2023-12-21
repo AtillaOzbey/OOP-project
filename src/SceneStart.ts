@@ -1,5 +1,5 @@
 import CanvasRenderer from './CanvasRenderer.js';
-// import Level from './Level.js';
+import Level from './Level.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 
@@ -10,7 +10,7 @@ export default class SceneStart extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.logo = CanvasRenderer.loadNewImage('/assets/logo_start.png');
+    this.logo = CanvasRenderer.loadNewImage('/assets/ByteCorp700x1400.png');
     this.starting = false;
   }
 
@@ -20,10 +20,9 @@ export default class SceneStart extends Scene {
    * @param mouseListener mouse listener object
    */
   public processInput(mouseListener: MouseListener): void {
-    // TODO dit fixen
-    // if (mouseListener.buttonPressed(0)) {
-    //   this.starting = true;
-    // }
+    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+      this.starting = true;
+    }
   }
 
   /**
@@ -40,11 +39,9 @@ export default class SceneStart extends Scene {
    */
   public override getNextScene(): Scene | null {
     if (this.starting) {
-      // TODO
-      return null;
-      // return new Level(this.maxX, this.maxY);
+      return new Level(this.maxX, this.maxY);
     }
-    return null;
+    return this;
   }
 
   /**
@@ -58,6 +55,7 @@ export default class SceneStart extends Scene {
       this.logo,
       (canvas.width / 2) - (this.logo.width / 2),
       (canvas.height / 2) - (this.logo.height / 2),
+
     );
   }
 }

@@ -45,10 +45,6 @@ export default class Player {
     this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
-  // public isColliding(fruit: Fruit): boolean {
-  //   return true;
-  // }
-
   public getPosY(): number {
     return this.posY;
   }

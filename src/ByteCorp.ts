@@ -1,6 +1,7 @@
-import { Game } from './GameLoop.js';
+
 
 import CanvasRenderer from './CanvasRenderer.js';
+import { Game } from './GameLoop.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
@@ -28,8 +29,9 @@ export default class ByteCorp extends Game {
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
-    this.canvas.height = window.innerHeight;
-    this.canvas.width = window.innerWidth;
+    this.canvas.height = 700;
+    this.canvas.width = 1400;
+    this.mouseListener = new MouseListener(this.canvas);
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
@@ -76,6 +78,8 @@ export default class ByteCorp extends Game {
     this.player.update(1);
 
     this.walls.push(new Wall(10, 200));
+    this.currentScene.update(elapsed);
+    this.currentScene = this.currentScene.getNextScene();
 
     return true;
   }
