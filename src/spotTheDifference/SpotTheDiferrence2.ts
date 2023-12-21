@@ -1,10 +1,9 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
-import Gameover from './Gameover.js';
-import SpotTheDiferrence2 from './SpotTheDiferrence2.js';
+import SpotTheDifference2 from './Gameover.js';
 
-export default class SpotTheDifference extends Scene {
+export default class SpotTheDiferrence2 extends Scene {
   private logo: HTMLImageElement;
 
   private circles: { x: number, y: number }[] = [];
@@ -17,7 +16,7 @@ export default class SpotTheDifference extends Scene {
     super(maxX, maxY);
     this.lives = 3;
     this.spotted = [];
-    this.logo = CanvasRenderer.loadNewImage('/assets/zoekdeverschillenv3.png');
+    this.logo = CanvasRenderer.loadNewImage('/assets/Zoekverschillen2.png');
   }
 
   public override processInput(mouseListener: MouseListener): void {
@@ -62,9 +61,9 @@ export default class SpotTheDifference extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.lives <= 0) {
-      return new Gameover(this.maxX, this.maxY);
+      return new SpotTheDifference2(this.maxX, this.maxY);
     } else if (this.spotted.length === 3) {
-      return new SpotTheDiferrence2(this.maxX, this.maxY);
+      return this;
 
     }
     return this;
