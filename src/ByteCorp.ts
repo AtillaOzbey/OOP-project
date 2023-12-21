@@ -79,6 +79,7 @@ export default class ByteCorp extends Game {
    * @returns True if game is over
    */
   private isGameOver(): boolean {
+
     return false;
   }
 
@@ -90,8 +91,6 @@ export default class ByteCorp extends Game {
     if (this.currentScene != null) {
       this.currentScene.render(this.canvas);
     }
-
     this.player.render(this.canvas);
-
   }
 }
