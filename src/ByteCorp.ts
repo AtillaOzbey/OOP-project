@@ -22,8 +22,8 @@ export default class ByteCorp extends Game {
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
-    this.canvas.height = window.innerHeight;
-    this.canvas.width = window.innerWidth;
+    this.canvas.height = 700;
+    this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
