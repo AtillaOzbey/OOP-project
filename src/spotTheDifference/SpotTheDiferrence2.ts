@@ -1,7 +1,8 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
-import SpotTheDifference2 from './Gameover.js';
+import Gameover from './Gameover.js';
+import SpotTheDiferrence3 from './SpotTheDiferrence2.js';
 
 export default class SpotTheDiferrence2 extends Scene {
   private logo: HTMLImageElement;
@@ -24,26 +25,24 @@ export default class SpotTheDiferrence2 extends Scene {
       this.lives -= 1;
       const mouseCoordinates: MouseCoordinates = mouseListener.getMousePosition();
       console.log(mouseListener.getMousePosition());
-      if (mouseCoordinates.x > 513 && mouseCoordinates.x < 530 && mouseCoordinates.y > 295 && mouseCoordinates.y < 310) {
-        this.addCircle(mouseCoordinates.x, mouseCoordinates.y);
+      if (mouseCoordinates.x > 513 && mouseCoordinates.x < 540 && mouseCoordinates.y > 485 && mouseCoordinates.y < 505) {
+        this.addCircle(525, 495);
         this.lives += 1;
         if (!this.spotted.includes('spotted')) {
           this.spotted.splice(0, 0, 'spotted');
         }
       }
-      if (mouseCoordinates.x > 535 && mouseCoordinates.x < 560 && mouseCoordinates.y > 410 && mouseCoordinates.y < 430) {
-        this.addCircle(mouseCoordinates.x, mouseCoordinates.y);
+      if (mouseCoordinates.x > 600 && mouseCoordinates.x < 620 && mouseCoordinates.y > 485 && mouseCoordinates.y < 503) {
+        this.addCircle(610, 495);
         this.lives += 1;
         if (!this.spotted.includes('spotted1')) {
           this.spotted.splice(0, 0, 'spotted1');
         }
       }
-      if (mouseCoordinates.x > 427 && mouseCoordinates.x < 445 && mouseCoordinates.y > 425 && mouseCoordinates.y < 440) {
-        this.addCircle(mouseCoordinates.x, mouseCoordinates.y);
+      if (mouseCoordinates.x > 479 && mouseCoordinates.x < 498 && mouseCoordinates.y > 326 && mouseCoordinates.y < 345) {
+        this.addCircle(490, 338);
         this.lives += 1;
         if (!this.spotted.includes('spotted2')) {
-
-
           this.spotted.splice(0, 0, 'spotted2');
         }
       }
@@ -61,13 +60,11 @@ export default class SpotTheDiferrence2 extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.lives <= 0) {
-      return new SpotTheDifference2(this.maxX, this.maxY);
+      return new Gameover(this.maxX, this.maxY);
     } else if (this.spotted.length === 3) {
-      return this;
-
+      return new SpotTheDiferrence3(this.maxX, this.maxY);
     }
     return this;
-
   }
 
 

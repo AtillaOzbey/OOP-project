@@ -2,9 +2,8 @@ import CanvasRenderer from '../CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
-import SpotTheDiferrence2 from './SpotTheDiferrence2.js';
 
-export default class SpotTheDifference extends Scene {
+export default class SpotTheDiferrence3 extends Scene {
   private logo: HTMLImageElement;
 
   private circles: { x: number, y: number }[] = [];
@@ -17,7 +16,7 @@ export default class SpotTheDifference extends Scene {
     super(maxX, maxY);
     this.lives = 3;
     this.spotted = [];
-    this.logo = CanvasRenderer.loadNewImage('/assets/zoekdeverschillenv3.png');
+    this.logo = CanvasRenderer.loadNewImage('/assets/doolhoffie3.png');
   }
 
   public override processInput(mouseListener: MouseListener): void {
@@ -25,26 +24,24 @@ export default class SpotTheDifference extends Scene {
       this.lives -= 1;
       const mouseCoordinates: MouseCoordinates = mouseListener.getMousePosition();
       console.log(mouseListener.getMousePosition());
-      if (mouseCoordinates.x > 513 && mouseCoordinates.x < 530 && mouseCoordinates.y > 295 && mouseCoordinates.y < 310) {
-        this.addCircle(522, 305);
+      if (mouseCoordinates.x > 574 && mouseCoordinates.x < 584 && mouseCoordinates.y > 505 && mouseCoordinates.y < 516) {
+        this.addCircle(580, 513);
         this.lives += 1;
         if (!this.spotted.includes('spotted')) {
           this.spotted.splice(0, 0, 'spotted');
         }
       }
-      if (mouseCoordinates.x > 541 && mouseCoordinates.x < 556 && mouseCoordinates.y > 420 && mouseCoordinates.y < 433) {
-        this.addCircle(550, 426);
+      if (mouseCoordinates.x > 659 && mouseCoordinates.x < 670 && mouseCoordinates.y > 547 && mouseCoordinates.y < 557) {
+        this.addCircle(665, 552);
         this.lives += 1;
         if (!this.spotted.includes('spotted1')) {
           this.spotted.splice(0, 0, 'spotted1');
         }
       }
-      if (mouseCoordinates.x > 427 && mouseCoordinates.x < 445 && mouseCoordinates.y > 425 && mouseCoordinates.y < 440) {
-        this.addCircle(436, 437);
+      if (mouseCoordinates.x > 687 && mouseCoordinates.x < 697 && mouseCoordinates.y > 340 && mouseCoordinates.y < 352) {
+        this.addCircle(692, 348);
         this.lives += 1;
         if (!this.spotted.includes('spotted2')) {
-
-
           this.spotted.splice(0, 0, 'spotted2');
         }
       }
@@ -64,8 +61,7 @@ export default class SpotTheDifference extends Scene {
     if (this.lives <= 0) {
       return new Gameover(this.maxX, this.maxY);
     } else if (this.spotted.length === 3) {
-      return new SpotTheDiferrence2(this.maxX, this.maxY);
-
+      return this;
     }
     return this;
 

@@ -1,6 +1,8 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from './MouseListener.js';
 import Scene from './Scene.js';
+import SpotTheDiferrence2 from './spotTheDifference/SpotTheDiferrence2.js';
+import SpotTheDiferrence3 from './spotTheDifference/SpotTheDiferrence3.js';
 import SpotTheDifference from './spotTheDifference/SpotTheDifference.js';
 
 export default class Level extends Scene {
@@ -19,7 +21,7 @@ export default class Level extends Scene {
   }
 
   public override getNextScene(): Scene | null {
-    return new SpotTheDifference(this.maxX, this.maxY);
+    return new Level(this.maxX, this.maxY);
   }
 
   public override render(canvas: HTMLCanvasElement): void {
