@@ -8,8 +8,6 @@ export default class Wall extends CanvasItem {
     this.posX = maxX;
     this.posY = maxY;
   }
-<<<<<<< Updated upstream
-=======
 
   public override getPosX(): number {
     return this.posX;
@@ -18,5 +16,4 @@ export default class Wall extends CanvasItem {
   public override getPosY(): number {
     return this.posY;
   }
->>>>>>> Stashed changes
 }

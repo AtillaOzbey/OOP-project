@@ -73,15 +73,8 @@ export default class ByteCorp extends Game {
    */
   public update(elapsed: number): boolean {
     this.player.update(1);
-<<<<<<< Updated upstream
 
     // this.walls.push(new Wall(10, 200));
-=======
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     this.currentScene.update(elapsed);
     this.currentScene = this.currentScene.getNextScene();
 
@@ -105,22 +98,10 @@ export default class ByteCorp extends Game {
     if (this.currentScene != null) {
       this.currentScene.render(this.canvas);
     }
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-    this.player.render(this.canvas);
-=======
->>>>>>> Stashed changes
 
     if (this.currentScene instanceof Level) {
       this.player.render(this.canvas);
       this.npcs.render(this.canvas);
     }
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   }
 }
