@@ -21,7 +21,7 @@ export default class Level extends Scene {
   }
 
   public override getNextScene(): Scene | null {
-    return new Level(this.maxX, this.maxY);
+    return new SpotTheDifference(this.maxX, this.maxY);
   }
 
   public override render(canvas: HTMLCanvasElement): void {

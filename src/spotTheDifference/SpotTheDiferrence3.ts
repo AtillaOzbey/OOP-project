@@ -1,4 +1,5 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import Level from '../Level.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
@@ -61,7 +62,7 @@ export default class SpotTheDiferrence3 extends Scene {
     if (this.lives <= 0) {
       return new Gameover(this.maxX, this.maxY);
     } else if (this.spotted.length === 3) {
-      return this;
+      return new Level(this.maxX, this.maxY);
     }
     return this;
 
