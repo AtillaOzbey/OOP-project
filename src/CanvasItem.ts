@@ -24,6 +24,7 @@ export default abstract class CanvasItem {
     return this.image.height;
   }
 
+<<<<<<< Updated upstream
   public isCollidingWithItem(item: Wall): boolean {
     return (this.getPosX() < item.getPosX() + item.getWidth()
       && this.getPosX() + this.getWidth() > item.getPosX()
@@ -31,6 +32,8 @@ export default abstract class CanvasItem {
       && this.getPosY() < item.getPosY() + item.getHeight());
   }
 
+=======
+>>>>>>> Stashed changes
   /**
    * Render the item to the canvas
    * @param canvas canvas to render to
