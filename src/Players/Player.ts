@@ -1,6 +1,6 @@
-import ByteCorp from "./ByteCorp.js";
-import CanvasRenderer from "./CanvasRenderer.js";
-import KeyListener from "./KeyListener.js";
+import ByteCorp from '../ByteCorp.js';
+import CanvasRenderer from '../CanvasRenderer.js';
+import KeyListener from '../KeyListener.js';
 
 export default class Player {
   private image: HTMLImageElement;
