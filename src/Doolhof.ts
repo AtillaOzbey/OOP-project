@@ -19,11 +19,11 @@ export default class Doolhof extends Scene {
     super(maxX, maxY);
     this.background = CanvasRenderer.loadNewImage('/assets/doolhof1.png');
     this.walls = [];
-    this.player = new Player(325, 167);
+    this.player = new Player(340, 167);
     this.keyListener = new KeyListener();
 
-    for (let i: number = 0; i < 12; i++) {
-      this.walls.push(new Wall(500, (50 * i)));
+    for (let i: number = 0; i < 13; i++) {
+      this.walls.push(new Wall(329, 123 + (41 * i)));
     }
   }
 
@@ -70,7 +70,6 @@ export default class Doolhof extends Scene {
    */
   public update(elapsed: number): void {
     this.player.update(1);
-    console.log(this.lastDirection);
 
     this.walls.forEach((wall) => {
       if (this.player.isCollidingWall(wall)) {
