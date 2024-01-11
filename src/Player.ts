@@ -6,7 +6,7 @@ import Wall from './Wall.js';
 export default class Player {
   private image: HTMLImageElement;
 
-  private speed: number;
+  public speed: number;
 
   private posX: number;
 
@@ -20,16 +20,16 @@ export default class Player {
 
   private movingDown: boolean;
 
-  private wall: Wall;
-
   public constructor(maxX: number, maxY: number) {
     this.posX = maxX;
     this.posY = maxY;
+    this.speed = 4;
     this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
   }
 
   public moveLeft(): void {
-    this.posX -= 5;
+    this.posX -= this.speed;
+    this.movingLeft = true;
     // if (this.posX < 20) {
     //   this.posX = 20;
     // }
@@ -41,7 +41,8 @@ export default class Player {
   }
 
   public moveRight(): void {
-    this.posX += 5;
+    this.posX += this.speed;
+    this.movingRight = true;
     // this.image = CanvasRenderer.loadNewImage('./assets/Alex_Right.png');
     // if (this.posX > 1310) {
     //   this.posX = 1310;
@@ -53,7 +54,8 @@ export default class Player {
   }
 
   public moveUp(): void {
-    this.posY -= 5;
+    this.posY -= this.speed;
+    this.movingUp = true;
     // this.image = CanvasRenderer.loadNewImage('./assets/Alex_Back.png');
     // if (this.posY < 25) {
     //   this.posY = 25;
@@ -68,7 +70,8 @@ export default class Player {
   }
 
   public moveDown(): void {
-    this.posY += 5;
+    this.posY += this.speed;
+    this.movingDown = true;
     // this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
     // if (this.posY > 610) {
     //   this.posY = 610;
@@ -84,12 +87,14 @@ export default class Player {
 
   /**
    * Collision with wall
+   * @param wall wall
+   * @returns whether collision is true or not
    */
-  public isCollidingWithItem(item: Wall): boolean {
-    return (this.getPosX() < this.wall.getPosX() + this.wall.getWidth()
-      && this.getPosX() + this.getWidth() > this.wall.getPosX()
-      && this.getPosY() + this.getHeight() > this.wall.getPosY()
-      && this.getPosY() < this.wall.getPosY() + this.wall.getHeight());
+  public isCollidingWall(wall: Wall): boolean {
+    return (wall.getPosX() + wall.getWidth() > this.posX
+      && wall.getPosX() < this.posX + this.image.width
+      && wall.getPosY() + wall.getHeight() > this.posY
+      && wall.getPosY() < this.posY + this.image.height);
   }
 
   public getPosY(): number {

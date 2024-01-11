@@ -27,29 +27,64 @@ export default class Doolhof extends Scene {
     }
   }
 
+  private lastDirection: number = 0;
+
+  private moveUp: boolean = true;
+
+  private moveDown: boolean = true;
+
+  private moveLeft: boolean = true;
+
+  private moveRight: boolean = true;
+
   public processInput(mouseListener: MouseListener): void {
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
+    if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+      this.lastDirection = 1;
+      this.moveDown = true;
+      this.moveLeft = true;
+      this.moveRight = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN) && this.moveDown === true) {
       this.player.moveDown();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+      this.lastDirection = 2;
+      this.moveLeft = true;
+      this.moveRight = true;
+      this.moveUp = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT) && this.moveLeft === true) {
       this.player.moveLeft();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+      this.lastDirection = 3;
+      this.moveUp = true;
+      this.moveDown = true;
+      this.moveRight = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT) && this.moveRight === true) {
       this.player.moveRight();
+      this.lastDirection = 4;
+      this.moveUp = true;
+      this.moveDown = true;
+      this.moveLeft = true;
     }
   }
 
+  /**
+   *@param elapsed elapsed time
+   */
   public update(elapsed: number): void {
     this.player.update(1);
+    console.log(this.lastDirection);
 
-    // for (let i: number = 0; i < this.walls.length; i++) {
-    //   if (this.player.isCollidingWithItem(this.walls[i])) {
-    //     console.log('s');
-    //   }
-    // }
+    this.walls.forEach((wall) => {
+      if (this.player.isCollidingWall(wall)) {
+        if (this.lastDirection === 1) {
+          this.moveUp = false;
+        } if (this.lastDirection === 2) {
+          this.moveDown = false;
+        } if (this.lastDirection === 3) {
+          this.moveLeft = false;
+        } if (this.lastDirection === 4) {
+          this.moveRight = false;
+        }
+      }
+    });
   }
 
   public getNextScene(): Scene | null {
@@ -64,9 +99,9 @@ export default class Doolhof extends Scene {
       (canvas.height / 2) - (this.background.height / 2),
     );
 
-    // for (let i: number = 0; i < this.walls.length; i++) {
-    //   this.walls[i].render(canvas);
-    // }
+    for (let i: number = 0; i < this.walls.length; i++) {
+      this.walls[i].render(canvas);
+    }
 
     this.player.render(canvas);
   }
