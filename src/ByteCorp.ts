@@ -8,6 +8,7 @@ import SceneStart from './SceneStart.js';
 import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
 import Level2 from './Levels/Level2.js';
+import Level3 from './Levels/Level3.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -45,8 +46,6 @@ export default class ByteCorp extends Game {
    */
   public processInput(): void {
     this.currentScene.processInput(this.mouseListener);
-    console.log(this.mouseListener.getMousePosition());
-
   }
 
   /**

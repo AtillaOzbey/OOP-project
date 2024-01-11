@@ -9,9 +9,9 @@ export default class Sanne {
 
   private posY: number;
 
-  public constructor() {
-    this.posX = 116;
-    this.posY = 140;
+  public constructor(posx: number, posy: number) {
+    this.posX = posx;
+    this.posY = posy;
     this.image = CanvasRenderer.loadNewImage('./assets/Sanne.png');
   }
 

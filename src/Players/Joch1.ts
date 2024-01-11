@@ -10,8 +10,8 @@ export default class Joch1 {
   private posY: number;
 
   public constructor() {
-    this.posX = 51;
-    this.posY = 100;
+    this.posX = 573;
+    this.posY = 405;
     this.image = CanvasRenderer.loadNewImage('./assets/Joch1.png');
   }
 
