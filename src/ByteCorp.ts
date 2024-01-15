@@ -5,7 +5,7 @@ import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
 import Player from './Player.js';
 import KeyListener from './KeyListener.js';
-import Wall from './Wall.js';
+import Wall from './WallVert.js';
 import Npcs from './Npcs.js';
 import CanvasItem from './CanvasItem.js';
 import Level from './Level.js';

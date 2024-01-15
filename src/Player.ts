@@ -1,7 +1,7 @@
 import ByteCorp from './ByteCorp.js';
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
-import Wall from './Wall.js';
+import Wall from './WallVert.js';
 
 export default class Player {
   private image: HTMLImageElement;
