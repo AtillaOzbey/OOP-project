@@ -327,6 +327,7 @@ export default class Doolhof extends Scene {
     for (let i: number = 0; i < 4; i++) {
       this.walls.push(new WallVert(999, 510 + (35 * i)));
     }
+
   }
 
   private lastDirection: number = 0;
