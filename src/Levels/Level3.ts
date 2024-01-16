@@ -19,7 +19,7 @@ export default class Level3 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.baas = new Baas();
+    this.baas = new Baas(1169, 580);
     this.sanne = new Sanne(1169, 400);
     this.player = new Player(2440, 590);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');

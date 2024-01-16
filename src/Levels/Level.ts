@@ -1,6 +1,7 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
+import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
 import Scene from '../Scene.js';
 
@@ -9,11 +10,14 @@ export default class Level extends Scene {
 
   private player: Player;
 
+  private baas: Baas;
+
   private keyListener: KeyListener;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.player = new Player(maxX, maxY);
+    this.baas = new Baas(1169, 580);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();
   }
@@ -49,5 +53,6 @@ export default class Level extends Scene {
       (canvas.height / 2) - (this.logo.height / 2),
     );
     this.player.render(canvas);
+    this.baas.render(canvas);
   }
 }

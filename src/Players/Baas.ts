@@ -9,9 +9,9 @@ export default class Baas {
 
   private posY: number;
 
-  public constructor() {
-    this.posX = 1169;
-    this.posY = 580;
+  public constructor(posx: number, posy: number) {
+    this.posX = posx;
+    this.posY = posy;
     this.image = CanvasRenderer.loadNewImage('./assets/Baas1.png');
   }
 
