@@ -33,7 +33,7 @@ export default class Level2 extends Scene {
     this.lucy = new Lucy();
     this.joch1 = new Joch1();
     this.joch2 = new Joch2();
-    this.baas = new Baas();
+    this.baas = new Baas(1169, 580);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();
   }

@@ -7,9 +7,6 @@ import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
 import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
-import Level2 from './Levels/Level2.js';
-import Level3 from './Levels/Level3.js';
-import Level from './Levels/Level.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -69,6 +66,7 @@ export default class ByteCorp extends Game {
    * @returns True if game is over
    */
   private isGameOver(): boolean {
+
     return false;
   }
 
@@ -80,7 +78,5 @@ export default class ByteCorp extends Game {
     if (this.currentScene != null) {
       this.currentScene.render(this.canvas);
     }
-
-
   }
 }

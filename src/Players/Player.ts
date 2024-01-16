@@ -29,6 +29,8 @@ export default class Player {
   public moveLeft(): void {
     this.posX -= 5;
     this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
+    console.log(this.posX + ' x' );
+    console.log(this.posY + ' Y' );
   }
 
   public moveRight(): void {
