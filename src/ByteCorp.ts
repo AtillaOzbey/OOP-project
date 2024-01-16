@@ -9,7 +9,7 @@ import Wall from './WallVert.js';
 import Npcs from './Npcs.js';
 import CanvasItem from './CanvasItem.js';
 import Level from './Level.js';
-import Doolhof from './Doolhof.js';
+import Doolhof2 from './Doolhof2.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -30,7 +30,7 @@ export default class ByteCorp extends Game {
     this.canvas.height = 700;
     this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
-    this.currentScene = new Doolhof(this.canvas.width, this.canvas.height);
+    this.currentScene = new Doolhof2(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
     this.npcs = new Npcs();

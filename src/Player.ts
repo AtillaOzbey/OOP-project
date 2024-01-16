@@ -24,7 +24,7 @@ export default class Player {
     this.posX = maxX;
     this.posY = maxY;
     this.speed = 4;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
   }
 
   public moveLeft(): void {
@@ -37,7 +37,7 @@ export default class Player {
     //   this.posX = 1000;
     // }
     // this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_left.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
   }
 
   public moveRight(): void {
@@ -50,7 +50,7 @@ export default class Player {
     // if (this.posX > 935 && this.posX < 950 && this.posY > 300) {
     //   this.posX = 935;
     // }
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
   }
 
   public moveUp(): void {
@@ -66,7 +66,7 @@ export default class Player {
     // if (this.posY < 410 && this.posY > 390 && this.posX > 1180 && this.posX < 1500) {
     //   this.posY = 410;
     // }
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_up.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
   }
 
   public moveDown(): void {
@@ -82,7 +82,7 @@ export default class Player {
     // if (this.posY > 300 && this.posY < 350 && this.posX > 950 && this.posX < 1165) {
     //   this.posY = 300;
     // }
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_down.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
   }
 
   /**
