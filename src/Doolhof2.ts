@@ -124,8 +124,66 @@ export default class Doolhof2 extends Scene {
 
     this.walls.push(new WallVert2(394, 587));
 
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallVert2(415, 103 + (21 * i)));
+    }
 
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(415, 251 + (21 * i)));
+    }
 
+    this.walls.push(new WallVert2(415, 335));
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallVert2(415, 419 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallVert2(436, 124 + (21 * i)));
+    }
+
+    this.walls.push(new WallVert2(436, 209));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(436, 272 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(436, 482 + (21 * i)));
+    }
+
+    this.walls.push(new WallVert2(436, 419));
+    this.walls.push(new WallVert2(436, 629));
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallVert2(457, 146 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(457, 314 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(457, 545 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallVert2(457, 608 + (21 * i)));
+    }
+
+    this.walls.push(new WallVert2(457, 419));
+    this.walls.push(new WallVert2(457, 503));
+    this.walls.push(new WallVert2(478, 125));
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallVert2(478, 167 + (21 * i)));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallVert2(478, 377 + (21 * i)));
+    }
+
+    this.walls.push(new WallVert2(478, 566));
 
 
 
