@@ -5,8 +5,11 @@ import { Game } from './GameLoop.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
-import Player from './Player.js';
+import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
+import Level2 from './Levels/Level2.js';
+import Level3 from './Levels/Level3.js';
+import Level from './Levels/Level.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -44,19 +47,6 @@ export default class ByteCorp extends Game {
    */
   public processInput(): void {
     this.currentScene.processInput(this.mouseListener);
-
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
-      this.player.moveUp();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
-      this.player.moveDown();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
-      this.player.moveLeft();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
-      this.player.moveRight();
-    }
   }
 
   /**
@@ -91,7 +81,6 @@ export default class ByteCorp extends Game {
       this.currentScene.render(this.canvas);
     }
 
-    this.player.render(this.canvas);
 
   }
 }
