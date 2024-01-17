@@ -1,18 +1,18 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from './MouseListener.js';
 import Scene from './Scene.js';
-import Player from './Player.js';
-import ByteCorp from './ByteCorp.js';
 import KeyListener from './KeyListener.js';
 import WallVert from './WallVert.js';
 import WallHori from './WallHori.js';
+import PlayerGrootPijl from './Players/PlayerGrootPijl.js';
+import Doolhof2 from './Doolhof2.js';
 
 export default class Doolhof extends Scene {
   private walls: WallVert[];
 
   private background: HTMLImageElement;
 
-  private player: Player;
+  private player: PlayerGrootPijl;
 
   private keyListener: KeyListener;
 
@@ -20,7 +20,7 @@ export default class Doolhof extends Scene {
     super(maxX, maxY);
     this.background = CanvasRenderer.loadNewImage('/assets/doolhof1.png');
     this.walls = [];
-    this.player = new Player(340, 167);
+    this.player = new PlayerGrootPijl(340, 167);
     this.keyListener = new KeyListener();
 
     for (let i: number = 0; i < 13; i++) {
@@ -327,7 +327,6 @@ export default class Doolhof extends Scene {
     for (let i: number = 0; i < 4; i++) {
       this.walls.push(new WallVert(999, 510 + (35 * i)));
     }
-
   }
 
   private lastDirection: number = 0;
@@ -340,6 +339,10 @@ export default class Doolhof extends Scene {
 
   private moveRight: boolean = true;
 
+  /**
+   * Processes the input
+   *@param mouseListener Listens to the mouse
+   */
   public processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
@@ -369,6 +372,7 @@ export default class Doolhof extends Scene {
   }
 
   /**
+   * Updates everything
    *@param elapsed elapsed time
    */
   public update(elapsed: number): void {
@@ -390,9 +394,17 @@ export default class Doolhof extends Scene {
   }
 
   public getNextScene(): Scene | null {
+    if (this.player.getPosX() > 967 && this.player.getPosX() < 1000
+      && this.player.getPosY() > 625 && this.player.getPosY() < 660) {
+      return new Doolhof2(this.maxX, this.maxY);
+    }
     return this;
   }
 
+  /**
+   * renders the game
+   *@param canvas the canvas
+   */
   public render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,

@@ -1,18 +1,18 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from './MouseListener.js';
 import Scene from './Scene.js';
-import Player from './Player.js';
-import ByteCorp from './ByteCorp.js';
 import KeyListener from './KeyListener.js';
 import WallVert2 from './WallVert2.js';
 import WallHori2 from './WallHori2.js';
+import PlayerKleinPijl from './Players/PlayerKleinPijl.js';
+import Doolhof from './Doolhof.js';
 
 export default class Doolhof2 extends Scene {
   private walls: WallVert2[];
 
   private background: HTMLImageElement;
 
-  private player: Player;
+  private player: PlayerKleinPijl;
 
   private keyListener: KeyListener;
 
@@ -20,7 +20,7 @@ export default class Doolhof2 extends Scene {
     super(maxX, maxY);
     this.background = CanvasRenderer.loadNewImage('/assets/doolhof2.png');
     this.walls = [];
-    this.player = new Player(340, 167);
+    this.player = new PlayerKleinPijl(275, 363);
     this.keyListener = new KeyListener();
 
     for (let i: number = 0; i < 26; i++) {
@@ -1251,6 +1251,10 @@ export default class Doolhof2 extends Scene {
 
   private moveRight: boolean = true;
 
+  /**
+   * Processes the input
+   *@param mouseListener Listens to the mouse
+   */
   public processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
@@ -1280,6 +1284,7 @@ export default class Doolhof2 extends Scene {
   }
 
   /**
+   * Updates the game
    *@param elapsed elapsed time
    */
   public update(elapsed: number): void {
@@ -1301,9 +1306,17 @@ export default class Doolhof2 extends Scene {
   }
 
   public getNextScene(): Scene | null {
+    if (this.player.getPosX() > 1110 && this.player.getPosX() < 1140
+      && this.player.getPosY() > 355 && this.player.getPosY() < 380) {
+      return new Doolhof(this.maxX, this.maxY);
+    }
     return this;
   }
 
+  /**
+   * renders the game
+   *@param canvas the canvas
+   */
   public render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,
