@@ -10,6 +10,7 @@ import Npcs from './Npcs.js';
 import CanvasItem from './CanvasItem.js';
 import Level from './Level.js';
 import Doolhof2 from './Doolhof2.js';
+import Doolhof from './Doolhof.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
