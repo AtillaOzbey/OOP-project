@@ -31,11 +31,11 @@ export default class Doolhof2 extends Scene {
       this.walls.push(new WallVert2(1130, 106 + (22 * i)));
     }
 
-    for (let i: number = 0; i < 38; i++) {
+    for (let i: number = 0; i < 39; i++) {
       this.walls.push(new WallHori2(268 + (22 * i), 103));
     }
 
-    for (let i: number = 0; i < 38; i++) {
+    for (let i: number = 0; i < 39; i++) {
       this.walls.push(new WallHori2(268 + (22 * i), 673));
     }
 
@@ -647,6 +647,598 @@ export default class Doolhof2 extends Scene {
       this.walls.push(new WallVert2(1109, 545 + (21 * i)));
     }
 
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(289 + (i * 21), 125));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(436 + (i * 21), 125));
+    }
+
+    this.walls.push(new WallHori2(541, 125));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 125));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(709 + (i * 21), 125));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(940 + (i * 21), 125));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1024 + (i * 21), 125));
+    }
+
+    this.walls.push(new WallHori2(667, 125));
+    this.walls.push(new WallHori2(877, 125));
+    this.walls.push(new WallHori2(1087, 125));
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(289 + (i * 21), 146));
+    }
+
+    this.walls.push(new WallHori2(457, 146));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(520 + (i * 21), 146));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(604 + (i * 21), 146));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(772 + (i * 21), 146));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1003 + (i * 21), 146));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(352 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(520 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(751 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(877 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1066 + (i * 21), 167));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 188));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(352 + (i * 21), 188));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(877 + (i * 21), 188));
+    }
+
+    this.walls.push(new WallHori2(541, 188));
+    this.walls.push(new WallHori2(667, 188));
+    this.walls.push(new WallHori2(751, 188));
+    this.walls.push(new WallHori2(814, 188));
+    this.walls.push(new WallHori2(940, 188));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 209));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(520 + (i * 21), 209));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(919 + (i * 21), 209));
+    }
+
+    this.walls.push(new WallHori2(625, 209));
+    this.walls.push(new WallHori2(709, 209));
+    this.walls.push(new WallHori2(1024, 209));
+    this.walls.push(new WallHori2(352, 230));
+    this.walls.push(new WallHori2(415, 230));
+    this.walls.push(new WallHori2(1108, 230));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(478 + (i * 21), 230));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(562 + (i * 21), 230));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(688 + (i * 21), 230));
+    }
+
+    for (let i: number = 0; i < 7; i++) {
+      this.walls.push(new WallHori2(919 + (i * 21), 230));
+    }
+
+    this.walls.push(new WallHori2(268, 251));
+    this.walls.push(new WallHori2(667, 251));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(309 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 7; i++) {
+      this.walls.push(new WallHori2(415 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(604 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(709 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(898 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(1024 + (i * 21), 251));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(289 + (i * 21), 272));
+    }
+
+    for (let i: number = 0; i < 7; i++) {
+      this.walls.push(new WallHori2(436 + (i * 21), 272));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(604 + (i * 21), 272));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(856 + (i * 21), 272));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(940 + (i * 21), 272));
+    }
+
+    this.walls.push(new WallHori2(730, 272));
+    this.walls.push(new WallHori2(793, 272));
+    this.walls.push(new WallHori2(1045, 272));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 293));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(457 + (i * 21), 293));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(751 + (i * 21), 293));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(919 + (i * 21), 293));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1066 + (i * 21), 293));
+    }
+
+    this.walls.push(new WallHori2(331, 293));
+    this.walls.push(new WallHori2(625, 293));
+    this.walls.push(new WallHori2(814, 293));
+    this.walls.push(new WallHori2(856, 293));
+
+    this.walls.push(new WallHori2(310, 314));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(457 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(604 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(709 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(961 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(1066 + (i * 21), 314));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(289 + (i * 21), 335));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 335));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(625 + (i * 21), 335));
+    }
+
+    for (let i: number = 0; i < 8; i++) {
+      this.walls.push(new WallHori2(730 + (i * 21), 335));
+    }
+
+    this.walls.push(new WallHori2(856, 335));
+    this.walls.push(new WallHori2(478, 335));
+    this.walls.push(new WallHori2(520, 335));
+    this.walls.push(new WallHori2(961, 335));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 356));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(352 + (i * 21), 356));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(415 + (i * 21), 356));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 356));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(772 + (i * 21), 356));
+    }
+
+    this.walls.push(new WallHori2(520, 356));
+    this.walls.push(new WallHori2(1024, 356));
+    this.walls.push(new WallHori2(1066, 356));
+
+    this.walls.push(new WallHori2(268, 377));
+    this.walls.push(new WallHori2(499, 377));
+    this.walls.push(new WallHori2(688, 377));
+    this.walls.push(new WallHori2(730, 377));
+    this.walls.push(new WallHori2(793, 377));
+    this.walls.push(new WallHori2(856, 377));
+    this.walls.push(new WallHori2(919, 377));
+    this.walls.push(new WallHori2(982, 377));
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(310 + (i * 21), 377));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(415 + (i * 21), 377));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 377));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(1045 + (i * 21), 377));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(310 + (i * 21), 398));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(373 + (i * 21), 398));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 398));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(940 + (i * 21), 398));
+    }
+
+    this.walls.push(new WallHori2(1066, 398));
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 419));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(373 + (i * 21), 419));
+    }
+
+    this.walls.push(new WallHori2(457, 419));
+    this.walls.push(new WallHori2(541, 419));
+    this.walls.push(new WallHori2(604, 419));
+    this.walls.push(new WallHori2(961, 419));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1024 + (i * 21), 419));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(310 + (i * 21), 440));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 440));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(646 + (i * 21), 440));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(835 + (i * 21), 440));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(1024 + (i * 21), 440));
+    }
+
+    this.walls.push(new WallHori2(919, 440));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(352 + (i * 21), 461));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(415 + (i * 21), 461));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(562 + (i * 21), 461));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(667 + (i * 21), 461));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(814 + (i * 21), 461));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(1003 + (i * 21), 461));
+    }
+
+    this.walls.push(new WallHori2(919, 461));
+
+    this.walls.push(new WallHori2(352, 482));
+    this.walls.push(new WallHori2(1087, 482));
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(436 + (i * 21), 482));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 482));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(709 + (i * 21), 482));
+    }
+
+    for (let i: number = 0; i < 13; i++) {
+      this.walls.push(new WallHori2(793 + (i * 21), 482));
+    }
+
+    this.walls.push(new WallHori2(268, 503));
+    this.walls.push(new WallHori2(604, 503));
+    this.walls.push(new WallHori2(667, 503));
+    this.walls.push(new WallHori2(730, 503));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(457 + (i * 21), 503));
+    }
+
+    for (let i: number = 0; i < 7; i++) {
+      this.walls.push(new WallHori2(772 + (i * 21), 503));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1003 + (i * 21), 503));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1066 + (i * 21), 503));
+    }
+
+    this.walls.push(new WallHori2(310, 524));
+    this.walls.push(new WallHori2(415, 524));
+    this.walls.push(new WallHori2(541, 524));
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(352 + (i * 21), 524));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(457 + (i * 21), 524));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(625 + (i * 21), 524));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(793 + (i * 21), 524));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(877 + (i * 21), 524));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(1087 + (i * 21), 524));
+    }
+
+    this.walls.push(new WallHori2(268, 545));
+    this.walls.push(new WallHori2(583, 545));
+    this.walls.push(new WallHori2(625, 545));
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(310 + (i * 21), 545));
+    }
+
+    for (let i: number = 0; i < 7; i++) {
+      this.walls.push(new WallHori2(415 + (i * 21), 545));
+    }
+
+    for (let i: number = 0; i < 8; i++) {
+      this.walls.push(new WallHori2(667 + (i * 21), 545));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(856 + (i * 21), 545));
+    }
+
+    this.walls.push(new WallHori2(268, 566));
+    this.walls.push(new WallHori2(1024, 566));
+    this.walls.push(new WallHori2(751, 587));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(309 + (i * 21), 566));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 566));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(499 + (i * 21), 566));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(730 + (i * 21), 566));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(877 + (i * 21), 566));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(331 + (i * 21), 587));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 587));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(478 + (i * 21), 587));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(814 + (i * 21), 587));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(877 + (i * 21), 587));
+    }
+
+    this.walls.push(new WallHori2(667, 608));
+
+    for (let i: number = 0; i < 11; i++) {
+      this.walls.push(new WallHori2(310 + (i * 21), 608));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(730 + (i * 21), 608));
+    }
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(793 + (i * 21), 608));
+    }
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(919 + (i * 21), 608));
+    }
+
+    this.walls.push(new WallHori2(1003, 587));
+    this.walls.push(new WallHori2(1066, 587));
+    this.walls.push(new WallHori2(1108, 608));
+
+    this.walls.push(new WallHori2(331, 629));
+    this.walls.push(new WallHori2(625, 629));
+    this.walls.push(new WallHori2(919, 629));
+    this.walls.push(new WallHori2(1108, 629));
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(478 + (i * 21), 629));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(373 + (i * 21), 629));
+    }
+
+    for (let i: number = 0; i < 8; i++) {
+      this.walls.push(new WallHori2(709 + (i * 21), 629));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(961 + (i * 21), 629));
+    }
+
+    for (let i: number = 0; i < 3; i++) {
+      this.walls.push(new WallHori2(1024 + (i * 21), 629));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(268 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(394 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 5; i++) {
+      this.walls.push(new WallHori2(457 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(583 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 2; i++) {
+      this.walls.push(new WallHori2(688 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 4; i++) {
+      this.walls.push(new WallHori2(751 + (i * 21), 650));
+    }
+
+    for (let i: number = 0; i < 6; i++) {
+      this.walls.push(new WallHori2(961 + (i * 21), 650));
+    }
+
+    this.walls.push(new WallHori2(877, 650));
+    this.walls.push(new WallHori2(919, 650));
+    this.walls.push(new WallVert2(1024, 587));
   }
 
   private lastDirection: number = 0;
