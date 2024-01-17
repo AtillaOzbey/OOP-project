@@ -1,7 +1,11 @@
-import ByteCorp from './ByteCorp.js';
-import CanvasRenderer from './CanvasRenderer.js';
-import KeyListener from './KeyListener.js';
-import Wall from './WallVert.js';
+import ByteCorp from '../ByteCorp.js';
+import CanvasRenderer from '../CanvasRenderer.js';
+import KeyListener from '../KeyListener.js';
+import WallHori from '../WallHori.js';
+import WallHori2 from '../WallHori2.js';
+import WallVert from '../WallVert.js';
+import WallVert2 from '../WallVert2.js';
+
 
 export default class Player {
   private image: HTMLImageElement;
@@ -28,16 +32,8 @@ export default class Player {
   }
 
   public moveLeft(): void {
-    this.posX -= this.speed;
-    this.movingLeft = true;
-    // if (this.posX < 20) {
-    //   this.posX = 20;
-    // }
-    // if (this.posX < 1000 && this.posX > 935 && this.posY > 300) {
-    //   this.posX = 1000;
-    // }
-    // this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
+    this.posX -= 5;
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
   }
 
   public moveRight(): void {
@@ -90,7 +86,7 @@ export default class Player {
    * @param wall wall
    * @returns whether collision is true or not
    */
-  public isCollidingWall(wall: Wall): boolean {
+  public isCollidingWall(wall: WallVert): boolean {
     return (wall.getPosX() + wall.getWidth() > this.posX
       && wall.getPosX() < this.posX + this.image.width
       && wall.getPosY() + wall.getHeight() > this.posY

@@ -3,7 +3,7 @@ import { Game } from './GameLoop.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
-import Player from './Player.js';
+import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
 import Wall from './WallVert.js';
 import Npcs from './Npcs.js';
@@ -51,19 +51,6 @@ export default class ByteCorp extends Game {
    */
   public processInput(): void {
     this.currentScene.processInput(this.mouseListener);
-
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
-      this.player.moveUp();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
-      this.player.moveDown();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
-      this.player.moveLeft();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
-      this.player.moveRight();
-    }
   }
 
   /**
@@ -75,7 +62,6 @@ export default class ByteCorp extends Game {
   public update(elapsed: number): boolean {
     this.player.update(1);
 
-    // this.walls.push(new Wall(10, 200));
     this.currentScene.update(elapsed);
     this.currentScene = this.currentScene.getNextScene();
 
@@ -88,6 +74,7 @@ export default class ByteCorp extends Game {
    * @returns True if game is over
    */
   private isGameOver(): boolean {
+
     return false;
   }
 
@@ -98,11 +85,6 @@ export default class ByteCorp extends Game {
     CanvasRenderer.clearCanvas(this.canvas);
     if (this.currentScene != null) {
       this.currentScene.render(this.canvas);
-    }
-
-    if (this.currentScene instanceof Level) {
-      this.player.render(this.canvas);
-      this.npcs.render(this.canvas);
     }
   }
 }

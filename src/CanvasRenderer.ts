@@ -115,10 +115,12 @@ export default class CanvasRenderer {
     centerY: number,
     radius: number,
     color: string = 'red',
+    lineWidth: number = 1,
   ): void {
     const ctx: CanvasRenderingContext2D = CanvasRenderer.getCanvasContext(canvas);
     ctx.beginPath();
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
     ctx.stroke();
   }
