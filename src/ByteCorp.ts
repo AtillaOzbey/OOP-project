@@ -24,7 +24,7 @@ export default class ByteCorp extends Game {
     this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
-    this.player = new Player(this.canvas.width, this.canvas.height);
+    this.player = new Player(100, 100);
     this.keyListener = new KeyListener();
   }
 

@@ -1,14 +1,9 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import Players from './Players.js';
 import WallVert from '../WallVert.js';
 
-export default class PlayerGrootPijl {
-  private image: HTMLImageElement;
-
+export default class PlayerPijl extends Players {
   private speed: number;
-
-  private posX: number;
-
-  private posY: number;
 
   private movingLeft: boolean;
 
@@ -18,10 +13,12 @@ export default class PlayerGrootPijl {
 
   private movingDown: boolean;
 
-  public constructor(maxX: number, maxY: number, speed: number) {
-    this.posX = maxX;
-    this.posY = maxY;
+  public constructor(posX: number, posY: number, speed: number) {
+    super();
+    this.posX = posX;
+    this.posY = posY;
     this.speed = speed;
+
     if (this.speed === 1) {
       this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
     } else if (this.speed === 2) {
@@ -92,36 +89,20 @@ export default class PlayerGrootPijl {
       && wall.getPosY() < this.posY + this.image.height);
   }
 
-  public getPosY(): number {
-    return this.posY;
-  }
-
-  public getPosX(): number {
-    return this.posX;
-  }
-
-  public getWidth(): number {
-    return this.image.width;
-  }
-
-  public getHeight(): number {
-    return this.image.height;
-  }
-
   /**
-   * Updates the level
+   * Updates the character
    *@param elapsed time which has elapsed
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
-  public update(elapsed: number): void {
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
+  public override update(elapsed: number): void {
 
   }
 
   /**
-   * Render all the elements in the screen. Called from GameLoop
-   * @param canvas the canvas to render to
+   * Renders items on the canvas
+   *@param canvas which canvas to render to
    */
-  public render(canvas: HTMLCanvasElement): void {
+  public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
 }

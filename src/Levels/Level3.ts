@@ -22,7 +22,7 @@ export default class Level3 extends Scene {
     super(maxX, maxY);
     this.baas = new Baas(1169, 580);
     this.sanne = new Sanne(1169, 400);
-    this.player = new Player(2440, 590);
+    this.player = new Player(448, 400);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();
   }

@@ -1,14 +1,9 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import WallVert from '../WallVert.js';
+import Players from './Players.js';
 
-export default class Player {
-  private image: HTMLImageElement;
-
+export default class Player extends Players {
   public speed: number;
-
-  private posX: number;
-
-  private posY: number;
 
   private movingLeft: boolean;
 
@@ -19,10 +14,11 @@ export default class Player {
   private movingDown: boolean;
 
   public constructor(maxX: number, maxY: number) {
+    super();
     this.posX = maxX;
     this.posY = maxY;
     this.speed = 4;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
   /**
@@ -39,7 +35,7 @@ export default class Player {
   public moveRight(): void {
     this.posX += this.speed;
     this.movingRight = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Right.png');
   }
 
   /**
@@ -48,7 +44,7 @@ export default class Player {
   public moveUp(): void {
     this.posY -= this.speed;
     this.movingUp = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Back.png');
   }
 
   /**
@@ -57,7 +53,7 @@ export default class Player {
   public moveDown(): void {
     this.posY += this.speed;
     this.movingDown = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Back.png');
   }
 
   /**
@@ -72,28 +68,12 @@ export default class Player {
       && wall.getPosY() < this.posY + this.image.height);
   }
 
-  public getPosY(): number {
-    return this.posY;
-  }
-
-  public getPosX(): number {
-    return this.posX;
-  }
-
-  public getWidth(): number {
-    return this.image.width;
-  }
-
-  public getHeight(): number {
-    return this.image.height;
-  }
-
   /**
    *Updates the level
    *@param elapsed time which has elapsed
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
-  public update(elapsed: number): void {
+  public override update(elapsed: number): void {
 
   }
 
@@ -101,7 +81,7 @@ export default class Player {
    * Render all the elements in the screen. Called from GameLoop
    * @param canvas the canvas to render to
    */
-  public render(canvas: HTMLCanvasElement): void {
+  public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
 }

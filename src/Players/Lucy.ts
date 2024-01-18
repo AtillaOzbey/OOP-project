@@ -1,15 +1,11 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import Players from './Players.js';
 
-export default class Lucy {
-  private image: HTMLImageElement;
-
-  private posX: number;
-
-  private posY: number;
-
-  public constructor() {
-    this.posX = 573;
-    this.posY = 140;
+export default class Lucy extends Players {
+  public constructor(posX: number, posY: number) {
+    super();
+    this.posX = posX;
+    this.posY = posY;
     this.image = CanvasRenderer.loadNewImage('./assets/Lucy.png');
   }
 
@@ -18,7 +14,7 @@ export default class Lucy {
    *@param elapsed time which has elapsed
    */
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
-  public update(elapsed: number): void {
+  public override update(elapsed: number): void {
 
   }
 
@@ -26,7 +22,7 @@ export default class Lucy {
    * Renders items on the canvas
    *@param canvas which canvas to render to
    */
-  public render(canvas: HTMLCanvasElement): void {
+  public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
 }

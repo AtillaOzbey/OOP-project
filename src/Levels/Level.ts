@@ -17,7 +17,7 @@ export default class Level extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.player = new Player(maxX, maxY);
+    this.player = new Player(448, 400);
     this.baas = new Baas(1169, 580);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();

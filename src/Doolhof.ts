@@ -5,7 +5,7 @@ import Scene from './Scene.js';
 import KeyListener from './KeyListener.js';
 import WallVert from './WallVert.js';
 import WallHori from './WallHori.js';
-import PlayerGrootPijl from './Players/PlayerGrootPijl.js';
+import PlayerGrootPijl from './Players/PlayerPijl.js';
 import Doolhof2 from './Doolhof2.js';
 
 export default class Doolhof extends Scene {
