@@ -20,7 +20,7 @@ export default class Doolhof extends Scene {
     super(maxX, maxY);
     this.background = CanvasRenderer.loadNewImage('/assets/doolhof1.png');
     this.walls = [];
-    this.player = new PlayerGrootPijl(340, 167);
+    this.player = new PlayerGrootPijl(340, 167, 2);
     this.keyListener = new KeyListener();
 
     for (let i: number = 0; i < 13; i++) {

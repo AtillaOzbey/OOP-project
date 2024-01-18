@@ -25,23 +25,35 @@ export default class PlayerKleinPijl {
     this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
   }
 
+  /**
+   *Makes the player move left
+   */
   public moveLeft(): void {
     this.posX -= this.speed;
     this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
   }
 
+  /**
+   *Makes the player move right
+   */
   public moveRight(): void {
     this.posX += this.speed;
     this.movingRight = true;
     this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
   }
 
+  /**
+   *Makes the player move up
+   */
   public moveUp(): void {
     this.posY -= this.speed;
     this.movingUp = true;
     this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
   }
 
+  /**
+   *Makes the player move down
+   */
   public moveDown(): void {
     this.posY += this.speed;
     this.movingDown = true;

@@ -4,7 +4,7 @@ import Scene from './Scene.js';
 import KeyListener from './KeyListener.js';
 import WallVert2 from './WallVert2.js';
 import WallHori2 from './WallHori2.js';
-import PlayerKleinPijl from './Players/PlayerKleinPijl.js';
+import PlayerGrootPijl from './Players/PlayerGrootPijl.js';
 import Doolhof from './Doolhof.js';
 
 export default class Doolhof2 extends Scene {
@@ -12,7 +12,7 @@ export default class Doolhof2 extends Scene {
 
   private background: HTMLImageElement;
 
-  private player: PlayerKleinPijl;
+  private player: PlayerGrootPijl;
 
   private keyListener: KeyListener;
 
@@ -20,7 +20,7 @@ export default class Doolhof2 extends Scene {
     super(maxX, maxY);
     this.background = CanvasRenderer.loadNewImage('/assets/doolhof2.png');
     this.walls = [];
-    this.player = new PlayerKleinPijl(275, 363);
+    this.player = new PlayerGrootPijl(275, 363, 1);
     this.keyListener = new KeyListener();
 
     for (let i: number = 0; i < 26; i++) {

@@ -1,10 +1,11 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import WallVert from '../WallVert.js';
+import ByteCorp from '../ByteCorp.js';
 
 export default class PlayerGrootPijl {
   private image: HTMLImageElement;
 
-  public speed: number;
+  private speed: number;
 
   private posX: number;
 
@@ -18,34 +19,66 @@ export default class PlayerGrootPijl {
 
   private movingDown: boolean;
 
-  public constructor(maxX: number, maxY: number) {
+  public constructor(maxX: number, maxY: number, speed: number) {
     this.posX = maxX;
     this.posY = maxY;
-    this.speed = 2;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    this.speed = speed;
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    }
   }
 
+  /**
+   *Makes the player move left
+   */
   public moveLeft(): void {
     this.posX -= this.speed;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_left.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left.png');
+    }
   }
 
+  /**
+   *Makes the player move right
+   */
   public moveRight(): void {
     this.posX += this.speed;
     this.movingRight = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    }
   }
 
+  /**
+   *Makes the player move up
+   */
   public moveUp(): void {
     this.posY -= this.speed;
     this.movingUp = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_up.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up.png');
+    }
   }
 
+  /**
+   *Makes the player move down
+   */
   public moveDown(): void {
     this.posY += this.speed;
     this.movingDown = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_down.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down.png');
+    }
   }
 
   /**
