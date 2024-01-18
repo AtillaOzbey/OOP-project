@@ -5,11 +5,6 @@ import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
 import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
-import Wall from './WallVert.js';
-import CanvasItem from './CanvasItem.js';
-import Level from './Level.js';
-import Doolhof2 from './Doolhof2.js';
-import Doolhof from './Doolhof.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -31,15 +26,6 @@ export default class ByteCorp extends Game {
     this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
-  }
-
-  /**
-   * Create a new item to fly through space.
-   *
-   * It can either be a new power up or a new meteor, depending on random chance.
-   */
-  private makeItem(): void {
-
   }
 
   /**
@@ -69,6 +55,7 @@ export default class ByteCorp extends Game {
    *
    * @returns True if game is over
    */
+  // eslint-disable-next-line class-methods-use-this
   private isGameOver(): boolean {
     return false;
   }

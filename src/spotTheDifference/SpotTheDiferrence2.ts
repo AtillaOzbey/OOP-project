@@ -20,26 +20,32 @@ export default class SpotTheDiferrence2 extends Scene {
     this.logo = CanvasRenderer.loadNewImage('/assets/Zoekverschillen2.png');
   }
 
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
   public override processInput(mouseListener: MouseListener): void {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.lives -= 1;
       const mouseCoordinates: MouseCoordinates = mouseListener.getMousePosition();
-      console.log(mouseListener.getMousePosition());
-      if (mouseCoordinates.x > 513 && mouseCoordinates.x < 540 && mouseCoordinates.y > 485 && mouseCoordinates.y < 505) {
+      if (mouseCoordinates.x > 513 && mouseCoordinates.x < 540
+        && mouseCoordinates.y > 485 && mouseCoordinates.y < 505) {
         this.addCircle(525, 495);
         this.lives += 1;
         if (!this.spotted.includes('spotted')) {
           this.spotted.splice(0, 0, 'spotted');
         }
       }
-      if (mouseCoordinates.x > 600 && mouseCoordinates.x < 620 && mouseCoordinates.y > 485 && mouseCoordinates.y < 503) {
+      if (mouseCoordinates.x > 600 && mouseCoordinates.x < 620
+        && mouseCoordinates.y > 485 && mouseCoordinates.y < 503) {
         this.addCircle(610, 495);
         this.lives += 1;
         if (!this.spotted.includes('spotted1')) {
           this.spotted.splice(0, 0, 'spotted1');
         }
       }
-      if (mouseCoordinates.x > 479 && mouseCoordinates.x < 498 && mouseCoordinates.y > 326 && mouseCoordinates.y < 345) {
+      if (mouseCoordinates.x > 479 && mouseCoordinates.x < 498
+        && mouseCoordinates.y > 326 && mouseCoordinates.y < 345) {
         this.addCircle(490, 338);
         this.lives += 1;
         if (!this.spotted.includes('spotted2')) {
@@ -49,11 +55,15 @@ export default class SpotTheDiferrence2 extends Scene {
     }
   }
 
-
   private addCircle(x: number, y: number): void {
     this.circles.push({ x, y });
   }
 
+  /**
+   * Updates the level
+   *@param elapsed time which has elapsed
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     // Voeg hier update-logica toe indien nodig
   }
@@ -67,7 +77,10 @@ export default class SpotTheDiferrence2 extends Scene {
     return this;
   }
 
-
+  /**
+   * Renders the canvas
+   *@param canvas what canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,

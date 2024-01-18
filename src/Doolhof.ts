@@ -1,4 +1,5 @@
 import CanvasRenderer from './CanvasRenderer.js';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from './MouseListener.js';
 import Scene from './Scene.js';
 import KeyListener from './KeyListener.js';
@@ -343,6 +344,7 @@ export default class Doolhof extends Scene {
    * Processes the input
    *@param mouseListener Listens to the mouse
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
@@ -375,6 +377,7 @@ export default class Doolhof extends Scene {
    * Updates everything
    *@param elapsed elapsed time
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public update(elapsed: number): void {
     this.player.update(1);
 

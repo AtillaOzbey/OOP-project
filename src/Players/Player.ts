@@ -88,10 +88,19 @@ export default class Player {
     return this.image.height;
   }
 
+  /**
+   *Updates the level
+   *@param elapsed time which has elapsed
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public update(elapsed: number): void {
 
   }
 
+  /**
+   * Render all the elements in the screen. Called from GameLoop
+   * @param canvas the canvas to render to
+   */
   public render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
