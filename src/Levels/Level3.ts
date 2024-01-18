@@ -1,5 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
@@ -26,10 +27,20 @@ export default class Level3 extends Scene {
     this.keyListener = new KeyListener();
   }
 
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
 
   }
 
+  /**
+   *
+   * @param elapsed elapsed ms since last update
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
 
   }
@@ -38,6 +49,10 @@ export default class Level3 extends Scene {
     return this;
   }
 
+  /**
+   * Renders the canvas
+   *@param canvas what canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,

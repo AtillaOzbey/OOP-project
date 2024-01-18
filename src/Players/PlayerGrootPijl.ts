@@ -1,10 +1,10 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import WallVert from '../WallVert.js';
 
-export default class Player {
+export default class PlayerGrootPijl {
   private image: HTMLImageElement;
 
-  public speed: number;
+  private speed: number;
 
   private posX: number;
 
@@ -18,19 +18,27 @@ export default class Player {
 
   private movingDown: boolean;
 
-  public constructor(maxX: number, maxY: number) {
+  public constructor(maxX: number, maxY: number, speed: number) {
     this.posX = maxX;
     this.posY = maxY;
-    this.speed = 4;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    this.speed = speed;
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    }
   }
 
   /**
    *Makes the player move left
    */
   public moveLeft(): void {
-    this.posX -= 5;
-    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
+    this.posX -= this.speed;
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left.png');
+    }
   }
 
   /**
@@ -39,7 +47,11 @@ export default class Player {
   public moveRight(): void {
     this.posX += this.speed;
     this.movingRight = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+    }
   }
 
   /**
@@ -48,7 +60,11 @@ export default class Player {
   public moveUp(): void {
     this.posY -= this.speed;
     this.movingUp = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up.png');
+    }
   }
 
   /**
@@ -57,7 +73,11 @@ export default class Player {
   public moveDown(): void {
     this.posY += this.speed;
     this.movingDown = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
+    if (this.speed === 1) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
+    } else if (this.speed === 2) {
+      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down.png');
+    }
   }
 
   /**
@@ -89,7 +109,7 @@ export default class Player {
   }
 
   /**
-   *Updates the level
+   * Updates the level
    *@param elapsed time which has elapsed
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this

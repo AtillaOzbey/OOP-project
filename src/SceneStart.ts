@@ -29,6 +29,7 @@ export default class SceneStart extends Scene {
    *
    * @param elapsed elapsed ms since last update
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public update(elapsed: number): void {
 
   }
