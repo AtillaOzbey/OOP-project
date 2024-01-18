@@ -65,7 +65,6 @@ export default class SpotTheDiferrence3 extends Scene {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
-    // Voeg hier update-logica toe indien nodig
   }
 
   public override getNextScene(): Scene | null {

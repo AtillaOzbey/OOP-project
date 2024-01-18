@@ -1,5 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
@@ -22,6 +23,11 @@ export default class Level extends Scene {
     this.keyListener = new KeyListener();
   }
 
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
@@ -37,6 +43,11 @@ export default class Level extends Scene {
     }
   }
 
+  /**
+   *
+   * @param elapsed elapsed ms since last update
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
 
   }
@@ -45,6 +56,10 @@ export default class Level extends Scene {
     return this;
   }
 
+  /**
+   * Renders the canvas
+   *@param canvas what canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,
