@@ -1,11 +1,11 @@
-import CanvasRenderer from './CanvasRenderer.js';
+import CanvasRenderer from '../CanvasRenderer.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import MouseListener, { MouseCoordinates } from './MouseListener.js';
-import Scene from './Scene.js';
-import KeyListener from './KeyListener.js';
-import WallVert from './WallVert.js';
-import WallHori from './WallHori.js';
-import PlayerGrootPijl from './Players/PlayerGrootPijl.js';
+import MouseListener, { MouseCoordinates } from '../MouseListener.js';
+import Scene from '../Scene.js';
+import KeyListener from '../KeyListener.js';
+import WallVert from '../Walls/WallVert.js';
+import WallHori from '../Walls/WallHori.js';
+import PlayerGrootPijl from '../Players/PlayerPijl.js';
 import Doolhof2 from './Doolhof2.js';
 
 export default class Doolhof extends Scene {
@@ -381,6 +381,7 @@ export default class Doolhof extends Scene {
   public update(elapsed: number): void {
     this.player.update(1);
 
+    // This is so that once you collide with a wall you can't move in the direction of the wall
     this.walls.forEach((wall) => {
       if (this.player.isCollidingWall(wall)) {
         if (this.lastDirection === 1) {

@@ -29,11 +29,11 @@ export default class Level2 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.player = new Player(maxX, maxY);
+    this.player = new Player(448, 400);
     this.sanne = new Sanne(116, 148);
-    this.lucy = new Lucy();
-    this.joch1 = new Joch1();
-    this.joch2 = new Joch2();
+    this.lucy = new Lucy(573, 140);
+    this.joch1 = new Joch1(573, 405);
+    this.joch2 = new Joch2(116, 405);
     this.baas = new Baas(1169, 580);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();

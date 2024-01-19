@@ -1,15 +1,11 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import Players from './Players.js';
 
-export default class Joch2 {
-  private image: HTMLImageElement;
-
-  private posX: number;
-
-  private posY: number;
-
-  public constructor() {
-    this.posX = 116;
-    this.posY = 405;
+export default class Joch2 extends Players {
+  public constructor(posX: number, posY: number) {
+    super();
+    this.posX = posX;
+    this.posY = posY;
     this.image = CanvasRenderer.loadNewImage('./assets/Joch2.png');
   }
 
@@ -18,7 +14,7 @@ export default class Joch2 {
    *@param elapsed time which has elapsed
    */
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
-  public update(elapsed: number): void {
+  public override update(elapsed: number): void {
 
   }
 
@@ -26,7 +22,7 @@ export default class Joch2 {
    * Renders items on the canvas
    *@param canvas which canvas to render to
    */
-  public render(canvas: HTMLCanvasElement): void {
+  public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
 }

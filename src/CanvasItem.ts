@@ -1,5 +1,5 @@
 import CanvasRenderer from './CanvasRenderer.js';
-import Wall from './WallVert.js';
+import Wall from './Walls/WallVert.js';
 
 export default abstract class CanvasItem {
   protected image: HTMLImageElement;
