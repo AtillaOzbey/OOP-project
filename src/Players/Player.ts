@@ -1,5 +1,5 @@
 import CanvasRenderer from '../CanvasRenderer.js';
-import WallVert from '../WallVert.js';
+import WallVert from '../Walls/WallVert.js';
 import Players from './Players.js';
 
 export default class Player extends Players {

@@ -1,5 +1,5 @@
-import CanvasItem from './CanvasItem.js';
-import CanvasRenderer from './CanvasRenderer.js';
+import CanvasItem from '../CanvasItem.js';
+import CanvasRenderer from '../CanvasRenderer.js';
 
 export default class WallHori2 extends CanvasItem {
   public constructor(maxX: number, maxY: number) {

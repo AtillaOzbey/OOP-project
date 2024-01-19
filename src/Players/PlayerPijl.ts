@@ -1,6 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import Players from './Players.js';
-import WallVert from '../WallVert.js';
+import WallVert from '../Walls/WallVert.js';
 
 export default class PlayerPijl extends Players {
   private speed: number;
