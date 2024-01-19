@@ -1,5 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
+import MessageBorder from '../MessageBorder.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
