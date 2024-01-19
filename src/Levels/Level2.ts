@@ -57,10 +57,10 @@ export default class Level2 extends Scene {
     this.count = 0;
     this.timeToNext = 90000000;
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
-    this.messageBorderSanne = new MessageBorder(CanvasRenderer.loadNewImage('/assets/sanne_Dialoog3.png'));
-    this.messageBorderJoch1 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/joch1_Dialoog.png'));
-    this.messageBorderJoch2 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/joch2_Dialoog.png'));
-    this.messageBorderLucy = new MessageBorder(CanvasRenderer.loadNewImage('/assets/lucy_Dialoog.png'));
+    this.messageBorderSanne = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Sanne3.png'));
+    this.messageBorderJoch1 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Sander2.png'));
+    this.messageBorderJoch2 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Max2.png'));
+    this.messageBorderLucy = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Lisa3.png'));
     this.messageBorderBaas = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Dialoog_baas2.0.png'));
     this.keyListener = new KeyListener();
   }
@@ -83,7 +83,6 @@ export default class Level2 extends Scene {
     if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-    console.log(this.count);
     if (mouseListener.getMousePosition().x > 114 && mouseListener.getMousePosition().x < 280 && mouseListener.getMousePosition().y > 108 && mouseListener.getMousePosition().y < 140 && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT) && this.spotted.length === 6) {
       this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.2.png'));
       this.timeToNext = 5000;

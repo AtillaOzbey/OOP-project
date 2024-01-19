@@ -7,6 +7,7 @@ import WallVert2 from '../Walls/WallVert2.js';
 import WallHori2 from '../Walls/WallHori2.js';
 import PlayerGrootPijl from '../Players/PlayerPijl.js';
 import Doolhof from './Doolhof.js';
+import SpotTheDifference from '../spotTheDifference/SpotTheDifference.js';
 
 export default class Doolhof2 extends Scene {
   private walls: WallVert2[];
@@ -1312,7 +1313,7 @@ export default class Doolhof2 extends Scene {
   public getNextScene(): Scene | null {
     if (this.player.getPosX() > 1110 && this.player.getPosX() < 1140
       && this.player.getPosY() > 355 && this.player.getPosY() < 380) {
-      return new Doolhof(this.maxX, this.maxY);
+      return new SpotTheDifference(this.maxX, this.maxY);
     }
     return this;
   }
