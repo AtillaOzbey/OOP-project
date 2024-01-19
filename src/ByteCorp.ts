@@ -1,5 +1,3 @@
-
-
 import CanvasRenderer from './CanvasRenderer.js';
 import { Game } from './GameLoop.js';
 import MouseListener from './MouseListener.js';
@@ -28,17 +26,8 @@ export default class ByteCorp extends Game {
     this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
     this.currentScene = new Level3(this.canvas.width, this.canvas.height);
-    this.player = new Player(this.canvas.width, this.canvas.height);
+    this.player = new Player(100, 100);
     this.keyListener = new KeyListener();
-  }
-
-  /**
-   * Create a new item to fly through space.
-   *
-   * It can either be a new power up or a new meteor, depending on random chance.
-   */
-  private makeItem(): void {
-
   }
 
   /**
@@ -56,6 +45,7 @@ export default class ByteCorp extends Game {
    */
   public update(elapsed: number): boolean {
     this.player.update(1);
+
     this.currentScene.update(elapsed);
     this.currentScene = this.currentScene.getNextScene();
 
@@ -67,8 +57,8 @@ export default class ByteCorp extends Game {
    *
    * @returns True if game is over
    */
+  // eslint-disable-next-line class-methods-use-this
   private isGameOver(): boolean {
-
     return false;
   }
 

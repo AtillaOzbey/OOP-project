@@ -1,6 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
-import MessageBorder from '../MessageBorder.js';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Joch1 from '../Players/Joch1.js';
@@ -46,11 +46,11 @@ export default class Level2 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.player = new Player(maxX, maxY);
+    this.player = new Player(448, 400);
     this.sanne = new Sanne(116, 148);
-    this.lucy = new Lucy();
-    this.joch1 = new Joch1();
-    this.joch2 = new Joch2();
+    this.lucy = new Lucy(573, 140);
+    this.joch1 = new Joch1(573, 405);
+    this.joch2 = new Joch2(116, 405);
     this.baas = new Baas(1169, 580);
     this.spotted = [];
     this.count = 0;
@@ -64,6 +64,11 @@ export default class Level2 extends Scene {
     this.keyListener = new KeyListener();
   }
 
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
@@ -98,6 +103,11 @@ export default class Level2 extends Scene {
     }
   }
 
+  /**
+   *
+   * @param elapsed elapsed ms since last update
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     this.timeToNext -= elapsed;
     if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.spotted.length === 5 && this.keyListener.keyPressed(KeyListener.KEY_E)) {
@@ -116,6 +126,10 @@ export default class Level2 extends Scene {
     return this;
   }
 
+  /**
+   * Renders the canvas
+   *@param canvas what canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,

@@ -1,6 +1,7 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
 import MessageBorder from '../MessageBorder.js';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
@@ -25,7 +26,7 @@ export default class Level extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.player = new Player(maxX, maxY);
+    this.player = new Player(448, 400);
     this.baas = new Baas(1169, 580);
     this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Dialoog_1.png'));
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
@@ -34,6 +35,11 @@ export default class Level extends Scene {
     this.timeToNext = 1000;
   }
 
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
@@ -49,6 +55,11 @@ export default class Level extends Scene {
     }
   }
 
+  /**
+   *
+   * @param elapsed elapsed ms since last update
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     this.timeToNext -= elapsed;
     if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.keyListener.isKeyDown(KeyListener.KEY_E) && this.count === 0) {
@@ -73,6 +84,10 @@ export default class Level extends Scene {
     return this;
   }
 
+  /**
+   * Renders the canvas
+   *@param canvas what canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
       canvas,

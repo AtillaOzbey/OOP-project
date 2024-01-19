@@ -1,26 +1,28 @@
-import ByteCorp from '../ByteCorp.js';
 import CanvasRenderer from '../CanvasRenderer.js';
-import KeyListener from '../KeyListener.js';
+import Players from './Players.js';
 
-export default class Baas {
-  private image: HTMLImageElement;
-
-  private posX: number;
-
-  private posY: number;
-
-  public constructor(posx: number, posy: number) {
-    this.posX = posx;
-    this.posY = posy;
+export default class Baas extends Players {
+  public constructor(posX: number, posY: number) {
+    super();
+    this.posX = posX;
+    this.posY = posY;
     this.image = CanvasRenderer.loadNewImage('./assets/Baas1.png');
   }
 
-
-  public update(elapsed: number): void {
+  /**
+   * Updates the character
+   *@param elapsed time which has elapsed
+   */
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
+  public override update(elapsed: number): void {
 
   }
 
-  public render(canvas: HTMLCanvasElement): void {
+  /**
+   * Renders items on the canvas
+   *@param canvas which canvas to render to
+   */
+  public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
   }
 }
