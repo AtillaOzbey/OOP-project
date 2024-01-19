@@ -2,6 +2,7 @@ import CanvasRenderer from '../CanvasRenderer.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import SceneStart from '../SceneStart.js';
+import SpotTheDifference from './SpotTheDifference.js';
 
 export default class Gameover extends Scene {
   private logo: HTMLImageElement;

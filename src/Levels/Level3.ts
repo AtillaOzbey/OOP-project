@@ -1,10 +1,12 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
+import MessageBorder from '../MessageBorder.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
 import Sanne from '../Players/Sanne.js';
 import Scene from '../Scene.js';
+import SpotTheDifference from '../spotTheDifference/SpotTheDifference.js';
 
 export default class Level3 extends Scene {
   private logo: HTMLImageElement;
@@ -13,21 +15,35 @@ export default class Level3 extends Scene {
 
   private baas: Baas;
 
-  private sanne: Sanne;
+  private messageBorderComputer: MessageBorder;
 
   private keyListener: KeyListener;
+
+  private timeToNext: number;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.baas = new Baas(1169, 580);
-    this.sanne = new Sanne(1169, 400);
+    this.timeToNext = 9000000
     this.player = new Player(2440, 590);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
+    this.messageBorderComputer = new MessageBorder(CanvasRenderer.loadNewImage('/assets/DoolhofHacken.png'));
     this.keyListener = new KeyListener();
   }
 
   public override processInput(mouseListener: MouseListener): void {
-
+    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
+      this.player.moveUp();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+      this.player.moveDown();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+      this.player.moveLeft();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+      this.player.moveRight();
+    }
   }
 
   public override update(elapsed: number): void {
@@ -35,8 +51,12 @@ export default class Level3 extends Scene {
   }
 
   public override getNextScene(): Scene | null {
+    if (this.timeToNext <= 0) {
+    }
     return this;
   }
+
+
 
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
@@ -47,6 +67,10 @@ export default class Level3 extends Scene {
     );
     this.player.render(canvas);
     this.baas.render(canvas);
-    this.sanne.render(canvas);
+    console.log(this.player.getPosX())
+    console.log(this.player.getPosY())
+    if (this.player.getPosX() > 520 && this.player.getPosX() < 629 && this.player.getPosY() > 100 && this.player.getPosY() < 140) {
+      this.messageBorderComputer.render(canvas);
+    }
   }
 }

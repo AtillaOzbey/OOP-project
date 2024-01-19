@@ -1,8 +1,9 @@
 import CanvasRenderer from '../CanvasRenderer.js';
-import Level from '../Level.js';
+import Level from '../Levels/Level.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
+import SpotTheDifference from './SpotTheDifference.js';
 
 export default class SpotTheDiferrence3 extends Scene {
   private logo: HTMLImageElement;
@@ -48,7 +49,6 @@ export default class SpotTheDiferrence3 extends Scene {
       }
     }
   }
-
 
   private addCircle(x: number, y: number): void {
     this.circles.push({ x, y });

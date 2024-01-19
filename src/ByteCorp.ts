@@ -7,6 +7,8 @@ import Scene from './Scene.js';
 import SceneStart from './SceneStart.js';
 import Player from './Players/Player.js';
 import KeyListener from './KeyListener.js';
+import Level2 from './Levels/Level2.js';
+import Level3 from './Levels/Level3.js';
 
 export default class ByteCorp extends Game {
   private canvas: HTMLCanvasElement;
@@ -25,7 +27,7 @@ export default class ByteCorp extends Game {
     this.canvas.height = 700;
     this.canvas.width = 1400;
     this.mouseListener = new MouseListener(this.canvas);
-    this.currentScene = new SceneStart(this.canvas.width, this.canvas.height);
+    this.currentScene = new Level3(this.canvas.width, this.canvas.height);
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.keyListener = new KeyListener();
   }

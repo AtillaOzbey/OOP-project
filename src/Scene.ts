@@ -1,6 +1,7 @@
 import MouseListener from './MouseListener.js';
 
 export default abstract class Scene {
+
   protected maxX: number;
 
   protected maxY: number;
