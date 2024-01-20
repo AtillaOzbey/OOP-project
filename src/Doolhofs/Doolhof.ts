@@ -18,10 +18,11 @@ export default class Doolhof extends Scene {
 
   private keyListener: KeyListener;
 
+  private messageBorderComputer: MessageBorder;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.background = CanvasRenderer.loadNewImage('/assets/Doolhofkeys2.png');
+    this.background = CanvasRenderer.loadNewImage('/assets/doolhof1.png');
     this.walls = [];
     this.player = new PlayerGrootPijl(340, 167, 2);
     this.keyListener = new KeyListener();

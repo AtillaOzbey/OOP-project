@@ -37,7 +37,7 @@ export default class Gameover extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.starting) {
-      return new SceneStart(this.maxX, this.maxY);
+      return new SpotTheDifference(this.maxX, this.maxY);
     }
     return this;
   }
