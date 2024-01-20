@@ -17,7 +17,7 @@ export default class Player extends Players {
     super();
     this.posX = maxX;
     this.posY = maxY;
-    this.speed = 4;
+    this.speed = 5;
     this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
@@ -25,7 +25,7 @@ export default class Player extends Players {
    *Makes the player move left
    */
   public moveLeft(): void {
-    this.posX -= 5;
+    this.posX -= this.speed;
     this.image = CanvasRenderer.loadNewImage('./assets/Alex_Left.png');
   }
 
@@ -53,7 +53,7 @@ export default class Player extends Players {
   public moveDown(): void {
     this.posY += this.speed;
     this.movingDown = true;
-    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Back.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 
   /**

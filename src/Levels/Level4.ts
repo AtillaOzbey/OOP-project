@@ -9,25 +9,29 @@ import Player from '../Players/Player.js';
 import Sanne from '../Players/Sanne.js';
 import Scene from '../Scene.js';
 
-export default class Level3 extends Scene {
+export default class Level4 extends Scene {
   private logo: HTMLImageElement;
 
   private player: Player;
 
   private baas: Baas;
 
-  private messageBorderComputer: MessageBorder;
+  private messageBorder: MessageBorder;
+
+  private messageBorderEnd: MessageBorder;
 
   private keyListener: KeyListener;
 
-  private timeToNext: number;
+  private timeToNextItem: number;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.timeToNext = 9000000;
+    this.timeToNextItem = 5000;
+    this.baas = new Baas(1169, 580);
     this.player = new Player(448, 590);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
-    this.messageBorderComputer = new MessageBorder(CanvasRenderer.loadNewImage('/assets/DoolhofHacken.png'));
+    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Firewall_hersteld.png'));
+    this.messageBorderEnd = new MessageBorder(CanvasRenderer.loadNewImage('/assets/ByteCorpEnd.png'));
     this.keyListener = new KeyListener();
   }
 
@@ -49,28 +53,37 @@ export default class Level3 extends Scene {
   }
 
   public override update(elapsed: number): void {
-    this.timeToNext -= elapsed;
+    this.timeToNextItem -= elapsed;
   }
 
   public override getNextScene(): Scene | null {
-    if (this.player.getPosX() > 520 && this.player.getPosX() < 629 && this.player.getPosY() > 100 && this.player.getPosY() < 140 && this.keyListener.keyPressed(KeyListener.KEY_E)) {
-      return new Doolhof(this.maxX, this.maxY);
-    }
     return this;
   }
 
 
 
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.drawImage(
-      canvas,
-      this.logo,
-      (canvas.width / 2) - (this.logo.width / 2),
-      (canvas.height / 2) - (this.logo.height / 2),
-    );
-    this.player.render(canvas);
-    if (this.player.getPosX() > 520 && this.player.getPosX() < 629 && this.player.getPosY() > 100 && this.player.getPosY() < 140) {
-      this.messageBorderComputer.render(canvas);
+    this.messageBorder.render(canvas);
+
+
+
+    if (this.timeToNextItem <= 0) {
+
+      CanvasRenderer.drawImage(
+        canvas,
+        this.logo,
+        (canvas.width / 2) - (this.logo.width / 2),
+        (canvas.height / 2) - (this.logo.height / 2),
+      );
+
+      if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570 && this.player.getPosY() < 680) {
+        this.logo = CanvasRenderer.loadNewImage('/assets/ByteCorpEnd.png');
+      } else {
+        this.player.render(canvas);
+        this.baas.render(canvas);
+      }
     }
+
+
   }
 }

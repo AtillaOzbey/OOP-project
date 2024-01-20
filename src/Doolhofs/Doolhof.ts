@@ -7,6 +7,7 @@ import WallVert from '../Walls/WallVert.js';
 import WallHori from '../Walls/WallHori.js';
 import PlayerGrootPijl from '../Players/PlayerPijl.js';
 import Doolhof2 from './Doolhof2.js';
+import MessageBorder from '../MessageBorder.js';
 
 export default class Doolhof extends Scene {
   private walls: WallVert[];
@@ -16,6 +17,8 @@ export default class Doolhof extends Scene {
   private player: PlayerGrootPijl;
 
   private keyListener: KeyListener;
+
+  private messageBorderComputer: MessageBorder;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
@@ -420,7 +423,7 @@ export default class Doolhof extends Scene {
     for (let i: number = 0; i < this.walls.length; i++) {
       this.walls[i].render(canvas);
     }
-
     this.player.render(canvas);
+
   }
 }

@@ -3,6 +3,7 @@ import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
 import SpotTheDiferrence3 from './SpotTheDiferrence3.js';
+import SpotTheDifference from './SpotTheDifference.js';
 
 export default class SpotTheDiferrence2 extends Scene {
   private logo: HTMLImageElement;
