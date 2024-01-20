@@ -17,7 +17,7 @@ export default class Player extends Players {
     super();
     this.posX = maxX;
     this.posY = maxY;
-    this.speed = 4;
+    this.speed = 5;
     this.image = CanvasRenderer.loadNewImage('./assets/Alex_Front.png');
   }
 

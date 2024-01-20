@@ -1,21 +1,22 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import Doolhof from '../Doolhofs/Doolhof.js';
 import KeyListener from '../KeyListener.js';
+import MessageBorder from '../MessageBorder.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
-import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
-import Sanne from '../Players/Sanne.js';
 import Scene from '../Scene.js';
 import Levels from './Levels.js';
 
 export default class Level3 extends Levels {
-  private sanne: Sanne;
+  private messageBorderComputer: MessageBorder;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.baas = new Baas(1169, 580);
-    this.sanne = new Sanne(1169, 400);
-    this.player = new Player(448, 400);
+    this.timeToNext = 9000000;
+    this.player = new Player(448, 590);
+    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
+    this.messageBorderComputer = new MessageBorder(CanvasRenderer.loadNewImage('/assets/DoolhofHacken.png'));
     this.keyListener = new KeyListener();
     this.walls = [];
     this.placeWalls();
@@ -25,7 +26,7 @@ export default class Level3 extends Levels {
    * Processes the input
    *@param mouseListener listens to the mouse
    */
-  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
@@ -73,15 +74,21 @@ export default class Level3 extends Levels {
         }
       }
     });
+    this.timeToNext -= elapsed;
   }
 
   public override getNextScene(): Scene | null {
+    if (this.player.getPosX() > 520 && this.player.getPosX() < 629
+      && this.player.getPosY() > 100 && this.player.getPosY() < 140
+      && this.keyListener.keyPressed(KeyListener.KEY_E)) {
+      return new Doolhof(this.maxX, this.maxY);
+    }
     return this;
   }
 
   /**
-   * Renders the canvas
-   *@param canvas what canvas to render to
+   * Renders everything to the canvas
+   *@param canvas the canvas to render to
    */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(
@@ -90,8 +97,12 @@ export default class Level3 extends Levels {
       (canvas.width / 2) - (this.logo.width / 2),
       (canvas.height / 2) - (this.logo.height / 2),
     );
+
     this.player.render(canvas);
-    this.baas.render(canvas);
-    this.sanne.render(canvas);
+
+    if (this.player.getPosX() > 520 && this.player.getPosX() < 629
+      && this.player.getPosY() > 100 && this.player.getPosY() < 140) {
+      this.messageBorderComputer.render(canvas);
+    }
   }
 }

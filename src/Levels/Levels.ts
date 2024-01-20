@@ -7,6 +7,7 @@ import Player from '../Players/Player.js';
 import Scene from '../Scene.js';
 import WallVert from '../Walls/WallVert.js';
 import WallHori from '../Walls/WallHori.js';
+import MessageBorder from '../MessageBorder.js';
 
 export default abstract class Levels extends Scene {
   protected logo: HTMLImageElement;
@@ -29,6 +30,12 @@ export default abstract class Levels extends Scene {
 
   protected moveRight: boolean = true;
 
+  protected messageBorder: MessageBorder;
+
+  protected timeToNext: number;
+
+  protected count: number;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.walls = [];
@@ -39,7 +46,7 @@ export default abstract class Levels extends Scene {
    * Processes the input
    *@param mouseListener listens to the mouse
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override processInput(mouseListener: MouseListener): void {
   }
 
@@ -188,6 +195,7 @@ export default abstract class Levels extends Scene {
    * Renders the canvas
    *@param canvas what canvas to render to
    */
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   public override render(canvas: HTMLCanvasElement): void {
   }
 }

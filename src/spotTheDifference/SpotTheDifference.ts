@@ -1,4 +1,5 @@
 import CanvasRenderer from '../CanvasRenderer.js';
+import MessageBorder from '../MessageBorder.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
@@ -13,10 +14,16 @@ export default class SpotTheDifference extends Scene {
 
   private spotted: string[];
 
+  private messageBorder: MessageBorder;
+
+  private timeToNextItem: number;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.lives = 3;
+    this.timeToNextItem = 5000;
     this.spotted = [];
+    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Verschillen_border.png'));
     this.logo = CanvasRenderer.loadNewImage('/assets/zoekdeverschillenv3.png');
   }
 
@@ -65,7 +72,7 @@ export default class SpotTheDifference extends Scene {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
-
+    this.timeToNextItem -= elapsed;
   }
 
   public override getNextScene(): Scene | null {
@@ -82,17 +89,23 @@ export default class SpotTheDifference extends Scene {
    *@param canvas what canvas to render to
    */
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.drawImage(
-      canvas,
-      this.logo,
-      (canvas.width / 2) - (this.logo.width / 2),
-      (canvas.height / 2) - (this.logo.height / 2),
-    );
 
-    CanvasRenderer.writeText(canvas, `Levens: ${this.lives} `, 45, 112);
+    this.messageBorder.render(canvas);
 
-    this.circles.forEach((circle) => {
-      CanvasRenderer.drawCircle(canvas, circle.x, circle.y, 20, 'red', 3);
-    });
+
+
+    if (this.timeToNextItem <= 0) {
+
+      CanvasRenderer.drawImage(
+        canvas,
+        this.logo,
+        (canvas.width / 2) - (this.logo.width / 2),
+        (canvas.height / 2) - (this.logo.height / 2),
+      );
+      this.circles.forEach((circle) => {
+        CanvasRenderer.drawCircle(canvas, circle.x, circle.y, 20, 'red', 3);
+      });
+      CanvasRenderer.writeText(canvas, `Levens: ${this.lives} `, 45, 112);
+    }
   }
 }
