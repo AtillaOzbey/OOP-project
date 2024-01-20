@@ -83,7 +83,6 @@ export default class Level2 extends Scene {
     if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-    console.log(this.count);
     if (mouseListener.getMousePosition().x > 114 && mouseListener.getMousePosition().x < 280 && mouseListener.getMousePosition().y > 108 && mouseListener.getMousePosition().y < 140 && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT) && this.spotted.length === 6) {
       this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.2.png'));
       this.timeToNext = 5000;
@@ -168,7 +167,6 @@ export default class Level2 extends Scene {
         this.spotted.splice(0, 0, 'spotted4');
       }
     }
-    console.log(this.spotted.length);
     if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.spotted.length >= 4) {
       this.messageBorderBaas.render(canvas);
       if (!this.spotted.includes('spotted5')) {

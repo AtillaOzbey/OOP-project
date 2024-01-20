@@ -69,7 +69,6 @@ export default class Level3 extends Scene {
       (canvas.height / 2) - (this.logo.height / 2),
     );
     this.player.render(canvas);
-    console.log(this.player.getPosX())
     if (this.player.getPosX() > 520 && this.player.getPosX() < 629 && this.player.getPosY() > 100 && this.player.getPosY() < 140) {
       this.messageBorderComputer.render(canvas);
     }
