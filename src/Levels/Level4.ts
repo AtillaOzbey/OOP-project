@@ -1,12 +1,10 @@
 import CanvasRenderer from '../CanvasRenderer.js';
-import Doolhof from '../Doolhofs/Doolhof.js';
 import KeyListener from '../KeyListener.js';
 import MessageBorder from '../MessageBorder.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
-import Sanne from '../Players/Sanne.js';
 import Scene from '../Scene.js';
 
 export default class Level4 extends Scene {
@@ -35,7 +33,11 @@ export default class Level4 extends Scene {
     this.keyListener = new KeyListener();
   }
 
-
+  /**
+   * Processes the input
+   *@param mouseListener listens to the mouse
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
@@ -49,9 +51,13 @@ export default class Level4 extends Scene {
     if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-
   }
 
+  /**
+   *
+   * @param elapsed elapsed ms since last update
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     this.timeToNextItem -= elapsed;
   }
@@ -60,15 +66,13 @@ export default class Level4 extends Scene {
     return this;
   }
 
-
-
+  /**
+   * Renders everything to the canvas
+   *@param canvas the canvas to render to
+   */
   public override render(canvas: HTMLCanvasElement): void {
     this.messageBorder.render(canvas);
-
-
-
     if (this.timeToNextItem <= 0) {
-
       CanvasRenderer.drawImage(
         canvas,
         this.logo,
@@ -76,14 +80,13 @@ export default class Level4 extends Scene {
         (canvas.height / 2) - (this.logo.height / 2),
       );
 
-      if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570 && this.player.getPosY() < 680) {
+      if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266
+        && this.player.getPosY() > 570 && this.player.getPosY() < 680) {
         this.logo = CanvasRenderer.loadNewImage('/assets/ByteCorpEnd.png');
       } else {
         this.player.render(canvas);
         this.baas.render(canvas);
       }
     }
-
-
   }
 }

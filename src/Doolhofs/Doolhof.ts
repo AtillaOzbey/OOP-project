@@ -424,6 +424,5 @@ export default class Doolhof extends Scene {
       this.walls[i].render(canvas);
     }
     this.player.render(canvas);
-
   }
 }
