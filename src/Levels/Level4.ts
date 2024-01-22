@@ -29,31 +29,7 @@ export default class Level4 extends Levels {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
-      this.player.moveUp();
-      this.lastDirection = 1;
-      this.moveDown = true;
-      this.moveLeft = true;
-      this.moveRight = true;
-    } else if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN) && this.moveDown === true) {
-      this.player.moveDown();
-      this.lastDirection = 2;
-      this.moveLeft = true;
-      this.moveRight = true;
-      this.moveUp = true;
-    } else if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT) && this.moveLeft === true) {
-      this.player.moveLeft();
-      this.lastDirection = 3;
-      this.moveUp = true;
-      this.moveDown = true;
-      this.moveRight = true;
-    } else if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT) && this.moveRight === true) {
-      this.player.moveRight();
-      this.lastDirection = 4;
-      this.moveUp = true;
-      this.moveDown = true;
-      this.moveLeft = true;
-    }
+    super.processInput(mouseListener);
   }
 
   /**
@@ -63,19 +39,7 @@ export default class Level4 extends Levels {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     this.timeToNextItem -= elapsed;
-    this.walls.forEach((wall) => {
-      if (this.player.isCollidingWall(wall)) {
-        if (this.lastDirection === 1) {
-          this.moveUp = false;
-        } if (this.lastDirection === 2) {
-          this.moveDown = false;
-        } if (this.lastDirection === 3) {
-          this.moveLeft = false;
-        } if (this.lastDirection === 4) {
-          this.moveRight = false;
-        }
-      }
-    });
+    super.update(1);
   }
 
   public override getNextScene(): Scene | null {
