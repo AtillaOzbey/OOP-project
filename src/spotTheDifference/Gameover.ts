@@ -2,7 +2,6 @@ import CanvasRenderer from '../CanvasRenderer.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
-import SceneStart from '../SceneStart.js';
 import SpotTheDifference from './SpotTheDifference.js';
 
 export default class Gameover extends Scene {

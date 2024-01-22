@@ -91,12 +91,12 @@ export default class Level2 extends Levels {
       && mouseListener.getMousePosition().y > 108 && mouseListener.getMousePosition().y < 140
       && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT) && this.spotted.length === 6) {
       this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.2.png'));
-      this.timeToNext = 5000;
+      this.timeToNext = 8000;
     } if ((mouseListener.getMousePosition().x > 114 && mouseListener.getMousePosition().x < 280
       && mouseListener.getMousePosition().y > 140
       && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) && this.spotted.length === 6) {
       this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.4.png'));
-      this.timeToNext = 5000;
+      this.timeToNext = 8000;
       this.count = 1;
     }
     if (this.count === 1 && this.timeToNext <= 0) {

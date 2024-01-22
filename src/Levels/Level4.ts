@@ -6,20 +6,9 @@ import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Baas from '../Players/Baas.js';
 import Player from '../Players/Player.js';
 import Scene from '../Scene.js';
+import Levels from './Levels.js';
 
-export default class Level4 extends Scene {
-  private logo: HTMLImageElement;
-
-  private player: Player;
-
-  private baas: Baas;
-
-  private messageBorder: MessageBorder;
-
-  private messageBorderEnd: MessageBorder;
-
-  private keyListener: KeyListener;
-
+export default class Level4 extends Levels {
   private timeToNextItem: number;
 
   public constructor(maxX: number, maxY: number) {
@@ -29,8 +18,9 @@ export default class Level4 extends Scene {
     this.player = new Player(448, 590);
     this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
     this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Firewall_hersteld.png'));
-    this.messageBorderEnd = new MessageBorder(CanvasRenderer.loadNewImage('/assets/ByteCorpEnd.png'));
     this.keyListener = new KeyListener();
+    this.walls = [];
+    this.placeWalls();
   }
 
   /**
@@ -39,17 +29,30 @@ export default class Level4 extends Scene {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener): void {
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
+    if (this.keyListener.isKeyDown(KeyListener.KEY_UP) && this.moveUp === true) {
       this.player.moveUp();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+      this.lastDirection = 1;
+      this.moveDown = true;
+      this.moveLeft = true;
+      this.moveRight = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN) && this.moveDown === true) {
       this.player.moveDown();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+      this.lastDirection = 2;
+      this.moveLeft = true;
+      this.moveRight = true;
+      this.moveUp = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT) && this.moveLeft === true) {
       this.player.moveLeft();
-    }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+      this.lastDirection = 3;
+      this.moveUp = true;
+      this.moveDown = true;
+      this.moveRight = true;
+    } else if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT) && this.moveRight === true) {
       this.player.moveRight();
+      this.lastDirection = 4;
+      this.moveUp = true;
+      this.moveDown = true;
+      this.moveLeft = true;
     }
   }
 
@@ -60,6 +63,19 @@ export default class Level4 extends Scene {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
     this.timeToNextItem -= elapsed;
+    this.walls.forEach((wall) => {
+      if (this.player.isCollidingWall(wall)) {
+        if (this.lastDirection === 1) {
+          this.moveUp = false;
+        } if (this.lastDirection === 2) {
+          this.moveDown = false;
+        } if (this.lastDirection === 3) {
+          this.moveLeft = false;
+        } if (this.lastDirection === 4) {
+          this.moveRight = false;
+        }
+      }
+    });
   }
 
   public override getNextScene(): Scene | null {
