@@ -11,7 +11,7 @@ export default class SceneStart extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.logo = CanvasRenderer.loadNewImage('/assets/ByteCorp700x1400.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/ByteCorp700x1400.png');
     this.starting = false;
   }
 
