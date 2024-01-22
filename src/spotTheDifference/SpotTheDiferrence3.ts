@@ -1,10 +1,8 @@
 import CanvasRenderer from '../CanvasRenderer.js';
-import Level from '../Levels/Level.js';
 import Level4 from '../Levels/Level4.js';
 import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
-import SpotTheDifference from './SpotTheDifference.js';
 
 export default class SpotTheDiferrence3 extends Scene {
   private logo: HTMLImageElement;
@@ -19,7 +17,7 @@ export default class SpotTheDiferrence3 extends Scene {
     super(maxX, maxY);
     this.lives = 3;
     this.spotted = [];
-    this.logo = CanvasRenderer.loadNewImage('/assets/doolhoffie3.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/doolhoffie3.png');
   }
 
   /**

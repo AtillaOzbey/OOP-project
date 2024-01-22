@@ -17,8 +17,8 @@ export default class Level extends Levels {
     this.keyListener = new KeyListener();
     this.walls = [];
     this.placeWalls();
-    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Dialoog_1.png'));
-    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
+    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Dialoog_1.png'));
+    this.logo = CanvasRenderer.loadNewImage('./assets/Kantoor3_700x1400.png');
     this.keyListener = new KeyListener();
     this.count = 0;
     this.timeToNext = 1000;
@@ -45,19 +45,19 @@ export default class Level extends Levels {
     if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266 && this.player.getPosY() > 570
       && this.player.getPosY() < 680 && this.keyListener.isKeyDown(KeyListener.KEY_E)
       && this.count === 0) {
-      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.png'));
+      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_2.png'));
       this.timeToNext = 8000;
       this.count += 1;
     } if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266
       && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.timeToNext <= 0
       && this.count === 1) {
-      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_3.png'));
+      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_3.png'));
       this.count += 1;
       this.timeToNext = 8000;
     } if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266
       && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.timeToNext <= 0
       && this.count === 2) {
-      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_4.png'));
+      this.messageBorder.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_4.png'));
       this.count += 1;
       this.timeToNext = 8000;
     }

@@ -15,8 +15,8 @@ export default class Level3 extends Levels {
     super(maxX, maxY);
     this.timeToNext = 9000000;
     this.player = new Player(448, 590);
-    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
-    this.messageBorderComputer = new MessageBorder(CanvasRenderer.loadNewImage('/assets/DoolhofHacken.png'));
+    this.logo = CanvasRenderer.loadNewImage('./assets/Kantoor3_700x1400.png');
+    this.messageBorderComputer = new MessageBorder(CanvasRenderer.loadNewImage('./assets/DoolhofHacken.png'));
     this.keyListener = new KeyListener();
     this.walls = [];
     this.placeWalls();

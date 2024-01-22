@@ -23,8 +23,8 @@ export default class SpotTheDifference extends Scene {
     this.lives = 3;
     this.timeToNextItem = 5000;
     this.spotted = [];
-    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Verschillen_border.png'));
-    this.logo = CanvasRenderer.loadNewImage('/assets/zoekdeverschillenv3.png');
+    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Verschillen_border.png'));
+    this.logo = CanvasRenderer.loadNewImage('./assets/zoekdeverschillenv3.png');
   }
 
   /**
@@ -89,13 +89,9 @@ export default class SpotTheDifference extends Scene {
    *@param canvas what canvas to render to
    */
   public override render(canvas: HTMLCanvasElement): void {
-
     this.messageBorder.render(canvas);
 
-
-
     if (this.timeToNextItem <= 0) {
-
       CanvasRenderer.drawImage(
         canvas,
         this.logo,

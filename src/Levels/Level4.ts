@@ -16,8 +16,8 @@ export default class Level4 extends Levels {
     this.timeToNextItem = 5000;
     this.baas = new Baas(1169, 580);
     this.player = new Player(448, 590);
-    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
-    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Firewall_hersteld.png'));
+    this.logo = CanvasRenderer.loadNewImage('./assets/Kantoor3_700x1400.png');
+    this.messageBorder = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Firewall_hersteld.png'));
     this.keyListener = new KeyListener();
     this.walls = [];
     this.placeWalls();
@@ -62,7 +62,7 @@ export default class Level4 extends Levels {
 
       if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266
         && this.player.getPosY() > 570 && this.player.getPosY() < 680) {
-        this.logo = CanvasRenderer.loadNewImage('/assets/ByteCorpEnd.png');
+        this.logo = CanvasRenderer.loadNewImage('./assets/ByteCorpEnd.png');
       } else {
         this.player.render(canvas);
         this.baas.render(canvas);

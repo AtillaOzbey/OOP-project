@@ -3,7 +3,6 @@ import MouseListener, { MouseCoordinates } from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Gameover from './Gameover.js';
 import SpotTheDiferrence3 from './SpotTheDiferrence3.js';
-import SpotTheDifference from './SpotTheDifference.js';
 
 export default class SpotTheDiferrence2 extends Scene {
   private logo: HTMLImageElement;
@@ -18,7 +17,7 @@ export default class SpotTheDiferrence2 extends Scene {
     super(maxX, maxY);
     this.lives = 3;
     this.spotted = [];
-    this.logo = CanvasRenderer.loadNewImage('/assets/Zoekverschillen2.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Zoekverschillen2.png');
   }
 
   /**

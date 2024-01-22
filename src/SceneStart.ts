@@ -2,7 +2,6 @@ import CanvasRenderer from './CanvasRenderer.js';
 import Level from './Levels/Level.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
-import SpotTheDifference from './spotTheDifference/SpotTheDifference.js';
 
 export default class SceneStart extends Scene {
   private starting: boolean;

@@ -45,12 +45,12 @@ export default class Level2 extends Levels {
     this.spotted = [];
     this.count = 0;
     this.timeToNext = 90000000;
-    this.logo = CanvasRenderer.loadNewImage('/assets/Kantoor3_700x1400.png');
-    this.messageBorderSanne = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Sanne3.png'));
-    this.messageBorderJoch1 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Sander2.png'));
-    this.messageBorderJoch2 = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Max2.png'));
-    this.messageBorderLucy = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Lisa3.png'));
-    this.messageBorderBaas = new MessageBorder(CanvasRenderer.loadNewImage('/assets/Dialoog_baas2.0.png'));
+    this.logo = CanvasRenderer.loadNewImage('./assets/Kantoor3_700x1400.png');
+    this.messageBorderSanne = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Sanne3.png'));
+    this.messageBorderJoch1 = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Sander2.png'));
+    this.messageBorderJoch2 = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Max2.png'));
+    this.messageBorderLucy = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Lisa3.png'));
+    this.messageBorderBaas = new MessageBorder(CanvasRenderer.loadNewImage('./assets/Dialoog_baas2.0.png'));
     this.keyListener = new KeyListener();
     this.walls = [];
     this.placeWalls();
@@ -66,22 +66,22 @@ export default class Level2 extends Levels {
     if (mouseListener.getMousePosition().x > 114 && mouseListener.getMousePosition().x < 280
       && mouseListener.getMousePosition().y > 108 && mouseListener.getMousePosition().y < 140
       && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT) && this.spotted.length === 6) {
-      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.2.png'));
+      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_2.2.png'));
       this.timeToNext = 8000;
     } if ((mouseListener.getMousePosition().x > 114 && mouseListener.getMousePosition().x < 280
       && mouseListener.getMousePosition().y > 140
       && mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) && this.spotted.length === 6) {
-      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.4.png'));
+      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_2.4.png'));
       this.timeToNext = 8000;
       this.count = 1;
     }
     if (this.count === 1 && this.timeToNext <= 0) {
-      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_baas2.1.png'));
+      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_baas2.1.png'));
       this.timeToNext = 90000;
       this.count = 2;
     }
     if (this.timeToNext <= 0 && this.spotted.length === 6) {
-      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_2.3.png'));
+      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_2.3.png'));
       this.count = 3;
       this.timeToNext = 5000;
     }
@@ -99,7 +99,7 @@ export default class Level2 extends Levels {
     if (this.player.getPosX() > 1130 && this.player.getPosX() < 1266
       && this.player.getPosY() > 570 && this.player.getPosY() < 680 && this.spotted.length === 5
       && this.keyListener.keyPressed(KeyListener.KEY_E)) {
-      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('/assets/Dialoog_baas2.1.png'));
+      this.messageBorderBaas.changeImage(CanvasRenderer.loadNewImage('./assets/Dialoog_baas2.1.png'));
       if (!this.spotted.includes('spotted6')) {
         this.spotted.splice(0, 0, 'spotted6');
       }

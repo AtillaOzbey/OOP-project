@@ -6,7 +6,6 @@ import KeyListener from '../KeyListener.js';
 import WallVert2 from '../Walls/WallVert2.js';
 import WallHori2 from '../Walls/WallHori2.js';
 import PlayerGrootPijl from '../Players/PlayerPijl.js';
-import Doolhof from './Doolhof.js';
 import SpotTheDifference from '../spotTheDifference/SpotTheDifference.js';
 
 export default class Doolhof2 extends Scene {
@@ -20,7 +19,7 @@ export default class Doolhof2 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.background = CanvasRenderer.loadNewImage('/assets/doolhof2.png');
+    this.background = CanvasRenderer.loadNewImage('./assets/doolhof2.png');
     this.walls = [];
     this.player = new PlayerGrootPijl(275, 363, 1);
     this.keyListener = new KeyListener();
