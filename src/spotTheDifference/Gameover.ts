@@ -12,7 +12,7 @@ export default class Gameover extends Scene {
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.starting = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/gameover_700x1400.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Gameover_700x1400.png');
   }
 
   /**
