@@ -19,7 +19,7 @@ export default class Doolhof2 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
-    this.background = CanvasRenderer.loadNewImage('./assets/doolhof2.png');
+    this.background = CanvasRenderer.loadNewImage('./assets/Doolhof2.png');
     this.walls = [];
     this.player = new PlayerGrootPijl(275, 363, 1);
     this.keyListener = new KeyListener();
