@@ -1,4 +1,5 @@
 import CanvasRenderer from './CanvasRenderer.js';
+import Doolhof from './Doolhofs/Doolhof.js';
 import Level from './Levels/Level.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
@@ -40,7 +41,7 @@ export default class SceneStart extends Scene {
    */
   public override getNextScene(): Scene | null {
     if (this.starting) {
-      return new Level(this.maxX, this.maxY);
+      return new Doolhof(this.maxX, this.maxY);
     }
     return this;
   }

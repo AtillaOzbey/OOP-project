@@ -5,76 +5,73 @@ import WallVert from '../Walls/WallVert.js';
 export default class PlayerPijl extends Players {
   private speed: number;
 
-  private movingLeft: boolean;
-
-  private movingRight: boolean;
-
-  private movingUp: boolean;
-
-  private movingDown: boolean;
+  private direction: string = 'right';
 
   public constructor(posX: number, posY: number, speed: number) {
     super();
     this.posX = posX;
     this.posY = posY;
     this.speed = speed;
+    this.updateImage();
+  }
 
-    if (this.speed === 1) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
-    } else if (this.speed === 2) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
+  /**
+   * Updates the player image based on the current direction
+   */
+  private updateImage(): void {
+    const basePath: string = './assets/';
+    switch (this.direction) {
+      case 'left':
+        this.image = CanvasRenderer.loadNewImage(`${basePath}arrow_left${this.speed === 1 ? '2' : ''}.png`);
+        break;
+      case 'right':
+        this.image = CanvasRenderer.loadNewImage(`${basePath}arrow_right${this.speed === 1 ? '2' : ''}.png`);
+        break;
+      case 'up':
+        this.image = CanvasRenderer.loadNewImage(`${basePath}arrow_up${this.speed === 1 ? '2' : ''}.png`);
+        break;
+      case 'down':
+        this.image = CanvasRenderer.loadNewImage(`${basePath}arrow_down${this.speed === 1 ? '2' : ''}.png`);
+        break;
+      default:
+        this.image = CanvasRenderer.loadNewImage(`${basePath}arrow_right${this.speed === 1 ? '2' : ''}.png`);
     }
   }
 
   /**
-   *Makes the player move left
+   * Makes the player move left
    */
   public moveLeft(): void {
     this.posX -= this.speed;
-    if (this.speed === 1) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left2.png');
-    } else if (this.speed === 2) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_left.png');
-    }
+    this.direction = 'left';
+    this.updateImage();
   }
 
   /**
-   *Makes the player move right
+   * Makes the player move right
    */
   public moveRight(): void {
     this.posX += this.speed;
-    this.movingRight = true;
-    if (this.speed === 1) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right2.png');
-    } else if (this.speed === 2) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_right.png');
-    }
+    this.direction = 'right';
+    this.updateImage();
   }
 
   /**
-   *Makes the player move up
+   * Makes the player move up
    */
   public moveUp(): void {
     this.posY -= this.speed;
-    this.movingUp = true;
-    if (this.speed === 1) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up2.png');
-    } else if (this.speed === 2) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_up.png');
-    }
+    this.direction = 'up';
+    this.updateImage();
   }
 
   /**
-   *Makes the player move down
+   * Makes the player move down
    */
   public moveDown(): void {
     this.posY += this.speed;
-    this.movingDown = true;
-    if (this.speed === 1) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down2.png');
-    } else if (this.speed === 2) {
-      this.image = CanvasRenderer.loadNewImage('./assets/arrow_down.png');
-    }
+    this.direction = 'down';
+    this.updateImage();
   }
 
   /**
@@ -93,9 +90,8 @@ export default class PlayerPijl extends Players {
    * Updates the character
    *@param elapsed time which has elapsed
    */
-  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   public override update(elapsed: number): void {
-
+    // Any additional updates can go here if needed
   }
 
   /**
